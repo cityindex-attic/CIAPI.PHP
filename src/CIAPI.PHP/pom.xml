@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+     <parent>
+        <groupId>com.cityindex.ciapi</groupId>
+        <artifactId>ciapi-php</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <properties>
+        <phpmaven.release.number>2.0-SNAPSHOT</phpmaven.release.number>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <phpunit.version>3.6.10</phpunit.version>
+    </properties>
+
+    <groupId>com.cityindex.ciapi</groupId>
+    <artifactId>CIAPI.PHP</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>php</packaging>
+
+    <name>CIAPI.PHP library (module project)</name>
+    <description>A basic/limited PHP client library for connecting to the CityIndex Trading API.</description>
+    <url>https://github.com/cityindex/CIAPI.PHP</url>
+    <inceptionYear>2012</inceptionYear>
+
+    <build>
+        <plugins>
+        	<plugin>
+                <groupId>org.phpmaven</groupId>
+                <artifactId>maven-php-plugin</artifactId>
+                <version>${phpmaven.plugin.version}</version>
+                
+                <configuration>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.0</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <reportPlugins>
+                        <plugin>
+                            <groupId>org.phpmaven</groupId>
+                            <artifactId>maven-php-plugin</artifactId>
+                            <version>${phpmaven.plugin.version}</version>
+                            <reportSets>
+                                <reportSet>
+                                    <reports>
+                                        <report>phpdocumentor</report>
+                                    </reports>
+                                </reportSet>
+                            </reportSets>
+                        </plugin>
+
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-report-plugin</artifactId>
+                            <version>2.10</version>
+                            <reportSets>
+                                <reportSet>
+                                    <reports>
+                                        <report>report-only</report>
+                                    </reports>
+                                </reportSet>
+                            </reportSets>
+                        </plugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.phpunit</groupId>
+            <artifactId>PHPUnit</artifactId>
+            <version>${phpunit.version}</version>
+            <scope>test</scope>
+            <type>phar</type>
+        </dependency>
+    </dependencies>
+
+</project>
