@@ -18,14 +18,35 @@
   <url>https://github.com/cityindex/CIAPI.PHP</url>
   <inceptionYear>2012</inceptionYear>
 
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
   <modules>
     <module>CIAPI.PHP</module>
   </modules>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <repositories>
+		<repository>
+			<id>release-repo1.php-maven.org</id>
+			<name>PHP-Maven 2 Release Repository</name>
+			<url>http://repos.php-maven.org/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>snapshot-repo1.php-maven.org</id>
+			<name>PHP-Maven 2 Snapshot Repository</name>
+			<url>http://repos.php-maven.org/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>release-repo1.php-maven.org</id>
@@ -47,25 +68,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	<repositories>
-		<repository>
-			<id>release-repo1.php-maven.org</id>
-			<name>PHP-Maven 2 Release Repository</name>
-			<url>http://repos.php-maven.org/releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-		<repository>
-			<id>snapshot-repo1.php-maven.org</id>
-			<name>PHP-Maven 2 Snapshot Repository</name>
-			<url>http://repos.php-maven.org/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 </project>
