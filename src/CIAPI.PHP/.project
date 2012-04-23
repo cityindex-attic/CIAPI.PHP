@@ -20,9 +20,15 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>org.phpmaven.eclipse.core.mavenBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.php.core.PHPNature</nature>
+		<nature>org.phpmaven.eclipse.core.phpMavenNature</nature>
 	</natures>
 </projectDescription>
