@@ -4,48 +4,46 @@ namespace com\cityindex\ciapi;
 
 
 /**
- * Sample Singleton Pattern.
+ * Interface for City Index Trading API (CIAPI) clients.
  */
-class CIAPI {
-    static private $info;
-    static private $instance = null;
+interface CIAPI {
+	/**
+	 * Log In
+	 *
+     * @param string $userName
+     * @param string $password
+	 * @return ApiLogOnResponseDTO $response
+	 */
+	public function logIn($userName, $password);
 
-    /**
-     *  Initalize the class attribute info.
-     */
-    private function __construct() {
-        $this->info = "Info set by class CIAPI constructor.";
-    }
+	/**
+	 * Log Out
+	 *
+	 * @return bool $result
+	 */
+	public function logOut();
 
-    /**
-     * Return the existing instance, if any, otherwise create one.
-     *
-     * @return <CIAPI> instance
-     */
-    static public function getInstance() {
-         if (null === self::$instance) {
-             self::$instance = new self;
-         }
-         return self::$instance;
-    }
+	/**
+	 * Change Password
+	 *
+     * @param string $userName
+     * @param string $password
+	 * @return ApiLogOnResponseDTO $response
+	 */
+	public function changePassword($userName, $password);
 
-    /**
-     * Sample class method.
-     *
-     * @param boolean $returnClassInfo
-     * @return string $message
-     */
-    public function doSomething($returnClassInfo) {
-
-        $message = "";
-        if ($returnClassInfo == true) {
-             $message = $this->info;
-	}
-        else {
-             $message = "Method doSomething() called with argument 'false'!";
-	}
-
-        return $message;
-    }
+	/**
+	 * Get UserName
+	 *
+	 * @return string $userName
+	 */
+	public function getUserName();
+	
+	
+	/**
+	 * Get Session
+	 *
+	 * @return string $session
+	 */
+	public function getSession();
 }
-?>
