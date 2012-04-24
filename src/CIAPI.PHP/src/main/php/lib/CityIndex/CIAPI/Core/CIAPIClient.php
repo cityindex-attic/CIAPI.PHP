@@ -3,9 +3,9 @@
 namespace CityIndex\CIAPI\Core;
 
 require_once 'lib/CityIndex/CIAPI/Core/CIAPI.php';
-require_once 'lib/CityIndex/CIAPI/Core/DTO.php';
+require_once 'lib/CityIndex/CIAPI/DTO/DTO.php';
 
-use CityIndex\CIAPI\Core\ApiLogOnResponseDTO;
+use CityIndex\CIAPI\DTO\ApiLogOnResponseDTO;
 
 
 /**

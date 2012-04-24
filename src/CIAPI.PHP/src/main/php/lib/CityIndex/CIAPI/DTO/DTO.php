@@ -1,6 +1,7 @@
 <?php
 
-//namespace CityIndex\CIAPI\Core;
+namespace CityIndex\CIAPI\DTO;
+
 
 /**
  * Request to create a session (log in).
