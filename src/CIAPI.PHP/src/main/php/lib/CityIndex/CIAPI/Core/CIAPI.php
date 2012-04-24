@@ -1,6 +1,6 @@
 <?php
 
-namespace com\cityindex\ciapi;
+namespace CityIndex\CIAPI\Core;
 
 
 /**

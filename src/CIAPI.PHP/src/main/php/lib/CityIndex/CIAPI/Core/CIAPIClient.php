@@ -1,11 +1,11 @@
 <?php
 
-namespace com\cityindex\ciapi;
+namespace CityIndex\CIAPI\Core;
 
-require_once 'lib/com/cityindex/ciapi/CIAPI.php';
-require_once 'lib/com/cityindex/ciapi/DTO.php';
+require_once 'lib/CityIndex/CIAPI/Core/CIAPI.php';
+require_once 'lib/CityIndex/CIAPI/Core/DTO.php';
 
-use com\cityindex\ciapi\ApiLogOnResponseDTO;
+use CityIndex\CIAPI\Core\ApiLogOnResponseDTO;
 
 
 /**

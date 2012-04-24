@@ -1,8 +1,8 @@
 <?php
 
-require_once 'lib/com/cityindex/ciapi/CIAPIClient.php';
+require_once 'lib/CityIndex/CIAPI/Core/CIAPIClient.php';
 
-use com\cityindex\ciapi\CIAPIClient;
+use CityIndex\CIAPI\Core\CIAPIClient;
 
 
 class CIAPITest extends PHPUnit_Framework_TestCase {
