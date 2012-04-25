@@ -6,14 +6,12 @@ use CityIndex\CIAPI\Core\CIAPIClient;
 
 
 class CIAPITest extends PHPUnit_Framework_TestCase {
-	static private $userName = 'NOTAUSERNAME';
-	static private $password = 'NOTAPASSWORD';
-	static private $appKey = 'CIAPITest';
-	static private $appVersion = '1.0-SNAPSHOT';	// @todo: derive automatically.
 	protected $ctx;
+	static private $userName = "NOTAUSERNAME";
+	static private $password = "NOTAPASSWORD";
 	
 	protected function setUp() {
- 		$this->ctx = new CIAPIClient(self::$appKey, self::$appVersion);
+ 		$this->ctx = new CIAPIClient();
 	}
 
 	/**

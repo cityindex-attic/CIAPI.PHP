@@ -1,0 +1,22 @@
+{
+    "name": "cityindex/ciapi",
+    "type": "library",
+    "description": "City Index Trading API (CIAPI) client",
+    "homepage": "https://github.com/cityindex/CIAPI.PHP",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Steffen Opel",
+            "homepage": "http://opelbrothers.net/"
+        }
+    ],
+    "require": {
+	"php": ">=5.3.0",
+        "rmccue/requests": ">=1.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "CityIndex": "src/main/php/lib/"
+        }
+    }
+}
