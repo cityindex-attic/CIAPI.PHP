@@ -13,7 +13,12 @@ Vagrant::Config.run do |config|
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
 
-  # Boot with a GUI so you can see the screen. (Default is headless)
+  # This can be used to customize any aspect of the VirtualBox virtual machine that
+  # Vagrant doesn’t expose configuration options for, e.g.:
+  # config.vm.customize ["modifyvm", :id, "--cpus", "2"]
+  # config.vm.customize ["modifyvm", :id, "--memory", "2048"]
+
+# Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
 
   # Assign this VM to a host-only network IP, allowing you to access it
@@ -35,29 +40,6 @@ Vagrant::Config.run do |config|
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
-
-  # Enable provisioning with Puppet stand alone.  Puppet manifests
-  # are contained in a directory path relative to this Vagrantfile.
-  # You will need to create the manifests directory and a manifest in
-  # the file ubuntu-12.04-server-amd64.pp in the manifests_path directory.
-  #
-  # An example Puppet manifest to provision the message of the day:
-  #
-  # # group { "puppet":
-  # #   ensure => "present",
-  # # }
-  # #
-  # # File { owner => 0, group => 0, mode => 0644 }
-  # #
-  # # file { '/etc/motd':
-  # #   content => "Welcome to your Vagrant-built virtual machine!
-  # #               Managed by Puppet.\n"
-  # # }
-  #
-  # config.vm.provision :puppet do |puppet|
-  #   puppet.manifests_path = "manifests"
-  #   puppet.manifest_file  = "ubuntu-12.04-server-amd64.pp"
-  # end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding 
