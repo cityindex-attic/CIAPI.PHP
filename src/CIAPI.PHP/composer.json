@@ -3,7 +3,7 @@
     "type": "library",
     "description": "City Index Trading API (CIAPI) client",
     "homepage": "https://github.com/cityindex/CIAPI.PHP",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Steffen Opel",
