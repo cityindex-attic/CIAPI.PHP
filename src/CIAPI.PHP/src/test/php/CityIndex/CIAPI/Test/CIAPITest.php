@@ -11,6 +11,7 @@ use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
 
 
 class CIAPITest extends \PHPUnit_Framework_TestCase {
+	static private $endpoint = 'https://example.com/';
 	static private $userName = 'NOTAUSERNAME';
 	static private $password = 'NOTAPASSWORD';
 	static private $appKey = 'CIAPITest';
@@ -18,7 +19,7 @@ class CIAPITest extends \PHPUnit_Framework_TestCase {
 	protected $ctx;
 	
 	protected function setUp() {
- 		$this->ctx = new CIAPIClient(self::$appKey, self::$appVersion);
+ 		$this->ctx = new CIAPIClient(self::$endpoint, self::$appKey, self::$appVersion);
 	}
 
 	/**

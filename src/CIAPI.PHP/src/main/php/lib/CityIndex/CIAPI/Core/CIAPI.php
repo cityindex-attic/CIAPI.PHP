@@ -35,6 +35,11 @@ interface CIAPI {
 	/**
 	 * @return string
 	 */
+	public function getEndpoint();
+	
+	/**
+	 * @return string
+	 */
 	public function getUserName();
 	
 	/**

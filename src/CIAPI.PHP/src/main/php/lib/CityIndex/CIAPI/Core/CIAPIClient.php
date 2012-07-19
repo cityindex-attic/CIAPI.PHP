@@ -16,6 +16,7 @@ class CIAPIClient implements CIAPI {
 	const idMinValue = -2147483648;
 	const idMaxValue = 2147483647;
 	
+	private $endpoint;
 	private $userName;
 	private $session;
 	private $appKey;
@@ -23,11 +24,13 @@ class CIAPIClient implements CIAPI {
 	private $appComments;
 
 	/**
+	 * @param string $endpoint
 	 * @param string $appKey
 	 * @param string $appVersion
-	 * @param string $appComments
+	 * @param string $appComments (optional)
 	 */
-	public function __construct($appKey, $appVersion, $appComments = "") {
+	public function __construct($endpoint, $appKey, $appVersion, $appComments = "") {
+		$this->endpoint = $endpoint;
 		$this->appKey = $appKey;
 		$this->appVersion = $appVersion;
 		$this->appComments = $appComments;
@@ -81,6 +84,13 @@ class CIAPIClient implements CIAPI {
 		return null;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getEndpoint() {
+		return $this->endpoint;
+	}
+	
 	/**
 	 * @return string
 	 */
