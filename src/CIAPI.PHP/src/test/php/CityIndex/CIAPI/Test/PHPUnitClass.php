@@ -57,6 +57,6 @@ class PHPUnitClass implements PHPUnitInterface {
 	 * @throws RuntimeException
 	 */
 	public function doThrow() {
-		throw new RuntimeException('RuntimeException thrown on prupose in doThrow().');
+		throw new RuntimeException('RuntimeException thrown on purpose in doThrow().');
 	}
 }

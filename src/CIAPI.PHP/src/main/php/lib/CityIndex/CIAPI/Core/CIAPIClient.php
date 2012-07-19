@@ -13,6 +13,9 @@ use CityIndex\CIAPI\DTO\ApiLogOnResponseDTO;
  * City Index Trading API (CIAPI) client.
  */
 class CIAPIClient implements CIAPI {
+	const idMinValue = -2147483648;
+	const idMaxValue = 2147483647;
+	
 	private $userName;
 	private $session;
 	private $appKey;
@@ -36,6 +39,15 @@ class CIAPIClient implements CIAPI {
 	 * @return ApiLogOnResponseDTO $response
 	 */
 	public function logIn($userName, $password) {
+		if (strlen($userName) < ApiLogOnRequestDTO::userNameMinLength 
+				|| strlen($userName) > ApiLogOnRequestDTO::userNameMaxLength) {
+			throw new SessionException(SessionException::userNameLengthViolation);
+		}
+		if (strlen($password) < ApiLogOnRequestDTO::passwordMinLength
+				|| strlen($password) > ApiLogOnRequestDTO::passwordMaxLength) {
+			throw new SessionException(SessionException::passwordLengthViolation);
+		}
+		
 		$this->userName = $userName;
 		$request = new ApiLogOnRequestDTO($userName, $password,
 				$this->appKey, $this->appVersion, $this->appComments);

@@ -4,6 +4,7 @@
 require_once __DIR__ . '/../../../../../../vendor/autoload.php';
 
 use CityIndex\CIAPI\Core\CIAPIClient;
+use CityIndex\CIAPI\Core\SessionException;
 
 
 class CIAPITest extends PHPUnit_Framework_TestCase {
@@ -22,10 +23,11 @@ class CIAPITest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @test
 	 */
-	public function logIn() {
+	public function logInSucceeds() {
 		$response = $this->ctx->logIn(self::$userName, self::$password);
 		$this->assertNull($response);
 		// @todo: $this->assertInstanceOf('ApiLogOnResponseDTO', $response);
+// 		$this->assertNotNull($this->ctx->getSession());
 	}
 	
 	/**
@@ -33,9 +35,26 @@ class CIAPITest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @test
 	 */
-	public function logOut() {
+	public function logOutSucceeds() {
 		$response = $this->ctx->logOut();
 		$this->assertTrue($response);
+		$this->assertNull($this->ctx->getSession());
+	}
+	
+	/**
+	 * @test
+	 * @expectedException CityIndex\CIAPI\Core\SessionException
+	 */
+	public function logInFailsWithShortPassword() {
+		$response = $this->ctx->logIn(self::$userName, '01234');
+	}
+	
+	/**
+	 * @test
+	 * @expectedException CityIndex\CIAPI\Core\SessionException
+	 */
+	public function logInFailsWithLongPassword() {
+		$response = $this->ctx->logIn(self::$userName, '0123456789012345678901234567890123456');
 	}
 	
 	/**
