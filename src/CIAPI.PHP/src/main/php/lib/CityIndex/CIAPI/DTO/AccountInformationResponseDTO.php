@@ -13,7 +13,7 @@ class AccountInformationResponseDTO {
 	private $tradingAccounts = array();
 	private $personalEmailAddress;
 	private $hasMultipleEmailAddresses;
-	
+
 	/**
 	 * @param string $logonUserName
 	 * @param integer $clientAccountId
@@ -23,7 +23,7 @@ class AccountInformationResponseDTO {
 	 * @param string $personalEmailAddress
 	 * @param bool $personalEmailAddress
 	 */
-	public function __construct($logonUserName, $clientAccountId, $clientAccountCurrency, $accountOperatorId, 
+	public function __construct($logonUserName, $clientAccountId, $clientAccountCurrency, $accountOperatorId,
 			array $tradingAccounts, $personalEmailAddress, $hasMultipleEmailAddresses) {
 		$this->logonUserName = $logonUserName;
 		$this->clientAccountId = $clientAccountId;
@@ -65,7 +65,7 @@ class AccountInformationResponseDTO {
 	/**
 	 * @return null|array
 	 */
- 	public function getTradingAccounts() {
+	public function getTradingAccounts() {
 		return $this->tradingAccounts;
 	}
 

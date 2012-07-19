@@ -1,7 +1,6 @@
 <?php
 
 namespace CityIndex\CIAPI\Test;
-
 // @todo: this is rather kludgy ...
 require_once __DIR__ . '/../../../../../../vendor/autoload.php';
 
@@ -12,10 +11,10 @@ use \Requests;
  * of this project in order to help with environment configuration and debugging.
  */
 class RequestsTest extends \PHPUnit_Framework_TestCase {
-	const endpoint = 'http://httpbin.org/get';
-	
+	const ENDPOINT = 'http://httpbin.org/get';
+
 	public function testExampleCom200() {
-		$request = Requests::get(self::endpoint);
+		$request = Requests::get(self::ENDPOINT);
 		$this->assertEquals(200, $request->status_code);
 	}
 }

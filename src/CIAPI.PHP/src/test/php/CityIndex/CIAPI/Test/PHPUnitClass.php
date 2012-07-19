@@ -1,9 +1,7 @@
 <?php
 
 namespace CityIndex\CIAPI\Test;
-
 require_once 'PHPUnitInterface.php';
-
 
 /**
  * This class is solely used to excercise required PHPUnit functionality in the context
@@ -45,8 +43,7 @@ class PHPUnitClass implements PHPUnitInterface {
 		$message = "";
 		if ($returnClassInfo == true) {
 			$message = $this->info;
-		}
-		else {
+		} else {
 			$message = "Method doSomething() called with argument 'false'!";
 		}
 

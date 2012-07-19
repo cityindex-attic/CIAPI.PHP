@@ -6,10 +6,10 @@ namespace CityIndex\CIAPI\DTO;
  * Request to create a session (log in).
  */
 class ApiLogOnRequestDTO {
-	const userNameMinLength = 6;
-	const userNameMaxLength = 20;
-	const passwordMinLength = 6;
-	const passwordMaxLength = 20;
+	const USER_NAME_MIN_LENGTH = 6;
+	const USER_NAME_MAX_LENGTH = 20;
+	const PASSWORD_MIN_LENGTH = 6;
+	const PASSWORD_MAX_LENGTH = 20;
 
 	private $userName;
 	private $password;
@@ -24,8 +24,7 @@ class ApiLogOnRequestDTO {
 	 * @param string $appVersion
 	 * @param string $appComments (optional)
 	 */
-	public function __construct($userName, $password, $appKey, $appVersion,
-			$appComments = "") {
+	public function __construct($userName, $password, $appKey, $appVersion, $appComments = "") {
 		$this->userName = $userName;
 		$this->password = $password;
 		$this->appKey = $appKey;

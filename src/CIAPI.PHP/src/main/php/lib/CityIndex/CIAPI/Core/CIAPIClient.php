@@ -1,21 +1,19 @@
 <?php
 
 namespace CityIndex\CIAPI\Core;
-
 require_once 'lib/CityIndex/CIAPI/Core/CIAPI.php';
 
 use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
 use CityIndex\CIAPI\DTO\ApiLogOnRequestDTO;
 use CityIndex\CIAPI\DTO\ApiLogOnResponseDTO;
 
-
 /**
  * City Index Trading API (CIAPI) client.
  */
 class CIAPIClient implements CIAPI {
-	const idMinValue = -2147483648;
-	const idMaxValue = 2147483647;
-	
+	const ID_MIN_VALUE = -2147483648;
+	const ID_MAX_VALUE = 2147483647;
+
 	private $endpoint;
 	private $userName;
 	private $session;
@@ -44,20 +42,22 @@ class CIAPIClient implements CIAPI {
 	 * @return ApiLogOnResponseDTO $response
 	 */
 	public function logIn($userName, $password) {
-		if (strlen($userName) < ApiLogOnRequestDTO::userNameMinLength 
-				|| strlen($userName) > ApiLogOnRequestDTO::userNameMaxLength) {
-			throw new SessionException(SessionException::userNameLengthViolation);
+		if (strlen($userName) < ApiLogOnRequestDTO::USER_NAME_MIN_LENGTH
+				|| strlen($userName) > ApiLogOnRequestDTO::USER_NAME_MAX_LENGTH) {
+			throw new SessionException(SessionException::USER_NAME_LENGTH_VIOLATION);
 		}
-		if (strlen($password) < ApiLogOnRequestDTO::passwordMinLength
-				|| strlen($password) > ApiLogOnRequestDTO::passwordMaxLength) {
-			throw new SessionException(SessionException::passwordLengthViolation);
+		if (strlen($password) < ApiLogOnRequestDTO::PASSWORD_MIN_LENGTH
+				|| strlen($password) > ApiLogOnRequestDTO::PASSWORD_MAX_LENGTH) {
+			throw new SessionException(SessionException::PASSWORD_LENGTH_VIOLATION);
 		}
-		
-		$this->userName = $userName;
-		$request = new ApiLogOnRequestDTO($userName, $password,
-				$this->appKey, $this->appVersion, $this->appComments);
 
-		return null;
+		$this->userName = $userName;
+		$request = new ApiLogOnRequestDTO($userName, $password, $this->appKey, $this->appVersion, $this->appComments);
+
+		// @todo
+		$response = new ApiLogOnResponseDTO(null, false, false);
+
+		return $response;
 	}
 
 	/**
@@ -90,7 +90,7 @@ class CIAPIClient implements CIAPI {
 	public function getEndpoint() {
 		return $this->endpoint;
 	}
-	
+
 	/**
 	 * @return string
 	 */
@@ -104,39 +104,35 @@ class CIAPIClient implements CIAPI {
 	public function getSession() {
 		return $this->session;
 	}
-	
-	
+
 	/**
 	 * @return AccountInformationResponseDTO
 	 */
 	public function getAccountInformation() {
 		// @todo
-		$result = new AccountInformationResponseDTO('','','','',array(),'','');
-		
+		$result = new AccountInformationResponseDTO('', '', '', '', array(), '', '');
+
 		return $result;
 	}
-	
+
 	/**
 	 * @return string
 	 */
-	public function getAppKey()
-	{
+	public function getAppKey() {
 		return $this->appKey;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAppVersion()
-	{
+	public function getAppVersion() {
 		return $this->appVersion;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAppComments()
-	{
+	public function getAppComments() {
 		return $this->appComments;
 	}
 }

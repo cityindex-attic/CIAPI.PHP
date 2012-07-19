@@ -1,8 +1,6 @@
 <?php
 
 namespace CityIndex\CIAPI\Core;
-
-
 /**
  * Interface for City Index Trading API (CIAPI) clients.
  */
@@ -10,8 +8,8 @@ interface CIAPI {
 	/**
 	 * Log In
 	 *
-     * @param string $userName
-     * @param string $password
+	 * @param string $userName
+	 * @param string $password
 	 * @return ApiLogOnResponseDTO $response
 	 */
 	public function logIn($userName, $password);
@@ -26,8 +24,8 @@ interface CIAPI {
 	/**
 	 * Change Password
 	 *
-     * @param string $userName
-     * @param string $password
+	 * @param string $userName
+	 * @param string $password
 	 * @return ApiLogOnResponseDTO $response
 	 */
 	public function changePassword($userName, $password);
@@ -36,17 +34,17 @@ interface CIAPI {
 	 * @return string
 	 */
 	public function getEndpoint();
-	
+
 	/**
 	 * @return string
 	 */
 	public function getUserName();
-	
+
 	/**
 	 * @return string
 	 */
 	public function getSession();
-	
+
 	/**
 	 * @return AccountInformationResponseDTO
 	 */

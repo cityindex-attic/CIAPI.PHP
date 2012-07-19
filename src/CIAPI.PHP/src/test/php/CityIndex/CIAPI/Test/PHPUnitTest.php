@@ -1,9 +1,7 @@
 <?php
 
 namespace CityIndex\CIAPI\Test;
-
 require_once 'PHPUnitClass.php';
-
 
 /**
  * This test case is solely used to excercise required PHPUnit functionality in the context
@@ -43,8 +41,11 @@ class PHPUnitTest extends \PHPUnit_Framework_TestCase {
 		$stub = $this->getMock('CityIndex\CIAPI\Test\PHPUnitInterface');
 
 		$map = array(
-			array(true, 'foo'),
-			array(false, 'bar')
+			array(
+				true, 'foo'
+			), array(
+				false, 'bar'
+			)
 		);
 		$stub->expects($this->any())->method('doSomething')->will($this->returnValueMap($map));
 
