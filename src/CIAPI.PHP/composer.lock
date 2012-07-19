@@ -1,12 +1,19 @@
 {
-    "hash": "ec52a2e9eb3a19f109255634a620e131",
+    "hash": "9b7098cdff9ae70c763f632587cf78e4",
     "packages": [
         {
             "package": "rmccue/requests",
             "version": "dev-master",
-            "source-reference": "627128a2f40ef01d792186f0118cd13f7e133949"
+            "source-reference": "74220e5c5a105995f07188b5b022344444108c67",
+            "commit-date": "1341298314"
         }
     ],
     "packages-dev": null,
-    "aliases": []
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ]
 }

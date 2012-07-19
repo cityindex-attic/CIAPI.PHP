@@ -16,7 +16,8 @@
     },
     "autoload": {
         "psr-0": {
-            "CityIndex": "src/main/php/lib/"
+            "CityIndex": "src/main/php/lib/",
+            "Requests": "vendor/rmccue/requests/library/"
         }
     }
 }
