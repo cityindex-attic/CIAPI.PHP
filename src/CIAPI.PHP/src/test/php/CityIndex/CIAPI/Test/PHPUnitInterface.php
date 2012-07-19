@@ -1,5 +1,7 @@
 <?php
 
+namespace CityIndex\CIAPI\Test;
+
 
 /**
  * This interface is solely used to excercise required PHPUnit functionality in the context

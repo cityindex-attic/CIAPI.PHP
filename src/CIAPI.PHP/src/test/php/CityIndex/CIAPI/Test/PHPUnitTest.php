@@ -1,5 +1,7 @@
 <?php
 
+namespace CityIndex\CIAPI\Test;
+
 require_once 'PHPUnitClass.php';
 
 
@@ -7,7 +9,7 @@ require_once 'PHPUnitClass.php';
  * This test case is solely used to excercise required PHPUnit functionality in the context
  * of this project in order to help with environment configuration and debugging.
  */
-class PHPUnitTest extends PHPUnit_Framework_TestCase {
+class PHPUnitTest extends \PHPUnit_Framework_TestCase {
 	protected $ctx;
 
 	protected function setUp() {
@@ -20,7 +22,7 @@ class PHPUnitTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testInstance() {
-		$this->assertInstanceOf('PHPUnitClass', $this->ctx);
+		$this->assertInstanceOf('CityIndex\CIAPI\Test\PHPUnitClass', $this->ctx);
 	}
 	public function testSomething() {
 		$this->assertEquals("Info set by class PHPUnitClass constructor.", $this->ctx->doSomething(true));
@@ -38,7 +40,7 @@ class PHPUnitTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testStub() {
-		$stub = $this->getMock('PHPUnitInterface');
+		$stub = $this->getMock('CityIndex\CIAPI\Test\PHPUnitInterface');
 
 		$map = array(
 			array(true, 'foo'),
