@@ -19,7 +19,7 @@ interface CIAPI {
 	/**
 	 * Log Out
 	 *
-	 * @return bool $result
+	 * @return boolean $result
 	 */
 	public function logOut();
 
@@ -33,13 +33,17 @@ interface CIAPI {
 	public function changePassword($userName, $password);
 
 	/**
-	 * @return string $userName
+	 * @return string
 	 */
 	public function getUserName();
 	
-	
 	/**
-	 * @return string $session
+	 * @return string
 	 */
 	public function getSession();
+	
+	/**
+	 * @return AccountInformationResponseDTO
+	 */
+	public function getAccountInformation();
 }

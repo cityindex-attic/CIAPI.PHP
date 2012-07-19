@@ -2,10 +2,10 @@
 
 namespace CityIndex\CIAPI\Core;
 
-use CityIndex\CIAPI\DTO\ApiLogOnRequestDTO;
-
 require_once 'lib/CityIndex/CIAPI/Core/CIAPI.php';
 
+use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
+use CityIndex\CIAPI\DTO\ApiLogOnRequestDTO;
 use CityIndex\CIAPI\DTO\ApiLogOnResponseDTO;
 
 
@@ -60,7 +60,7 @@ class CIAPIClient implements CIAPI {
 	/**
 	 * Log Out
 	 *
-	 * @return bool $result
+	 * @return boolean $result
 	 */
 	public function logOut() {
 		$this->session = null;
@@ -73,7 +73,7 @@ class CIAPIClient implements CIAPI {
 	 *
 	 * @param string $userName
 	 * @param string $password
-	 * @return ApiLogOnResponseDTO $response
+	 * @return ApiLogOnResponseDTO
 	 */
 	public function changePassword($userName, $password) {
 		// @todo: strangely the following chokes with PHPUnit currently:
@@ -82,21 +82,32 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * @return string $userName
+	 * @return string
 	 */
 	public function getUserName() {
 		return $this->userName;
 	}
 
 	/**
-	 * @return string $session
+	 * @return string
 	 */
 	public function getSession() {
 		return $this->session;
 	}
-
+	
+	
 	/**
-	 * @return string $appKey
+	 * @return AccountInformationResponseDTO
+	 */
+	public function getAccountInformation() {
+		// @todo
+		$result = new AccountInformationResponseDTO('','','','',array(),'','');
+		
+		return $result;
+	}
+	
+	/**
+	 * @return string
 	 */
 	public function getAppKey()
 	{
@@ -104,7 +115,7 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * @return string $appVersion
+	 * @return string
 	 */
 	public function getAppVersion()
 	{
@@ -112,7 +123,7 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * @return string $appComments
+	 * @return string
 	 */
 	public function getAppComments()
 	{

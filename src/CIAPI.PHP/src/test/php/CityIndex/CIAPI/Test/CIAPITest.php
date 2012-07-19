@@ -1,13 +1,16 @@
 <?php
 
+//namespace CityIndex\CIAPI\Test;
+
 // @todo: this is rather kludgy ...
 require_once __DIR__ . '/../../../../../../vendor/autoload.php';
 
 use CityIndex\CIAPI\Core\CIAPIClient;
 use CityIndex\CIAPI\Core\SessionException;
+use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
 
 
-class CIAPITest extends PHPUnit_Framework_TestCase {
+class CIAPITest extends \PHPUnit_Framework_TestCase {
 	static private $userName = 'NOTAUSERNAME';
 	static private $password = 'NOTAPASSWORD';
 	static private $appKey = 'CIAPITest';
@@ -72,5 +75,13 @@ class CIAPITest extends PHPUnit_Framework_TestCase {
 		$response = $this->ctx->changePassword($userName, $newPassphrase);
 		$this->assertNull($response);
 //		$this->assertEquals($newPassphrase, $this->ctx->getUserName(), 'New password doesn\'t match expectation!'); 
+	}
+
+	/**
+	 * @test
+	 */
+	public function getAccountInformation() {
+		$response = $this->ctx->getAccountInformation();
+		$this->assertInstanceOf('CityIndex\CIAPI\DTO\AccountInformationResponseDTO', $response);
 	}
 }
