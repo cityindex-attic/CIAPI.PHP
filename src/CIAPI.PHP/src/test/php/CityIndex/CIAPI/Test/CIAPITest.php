@@ -1,6 +1,6 @@
 <?php
 
-//namespace CityIndex\CIAPI\Test;
+namespace CityIndex\CIAPI\Test;
 
 // @todo: this is rather kludgy ...
 require_once __DIR__ . '/../../../../../../vendor/autoload.php';
