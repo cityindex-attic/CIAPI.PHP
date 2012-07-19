@@ -1,6 +1,7 @@
 <?php
 
-require_once 'lib/CityIndex/CIAPI/Core/CIAPIClient.php';
+// @todo: this is rather kludgy ...
+require_once __DIR__ . '/../../../../../../vendor/autoload.php';
 
 use CityIndex\CIAPI\Core\CIAPIClient;
 
@@ -40,7 +41,7 @@ class CIAPITest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Change Password
 	 *
-	 * @todo: the change passwor implementation isn't available yet, and the test must likely 
+	 * @todo: the change password implementation isn't available yet, and the test must likely 
 	 * be adjusted anyway to reset the test credentials to the expected state.
 	 *  
 	 * @test

@@ -5,7 +5,6 @@ namespace CityIndex\CIAPI\Core;
 use CityIndex\CIAPI\DTO\ApiLogOnRequestDTO;
 
 require_once 'lib/CityIndex/CIAPI/Core/CIAPI.php';
-require_once 'lib/CityIndex/CIAPI/DTO/DTO.php';
 
 use CityIndex\CIAPI\DTO\ApiLogOnResponseDTO;
 
