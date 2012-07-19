@@ -17,8 +17,6 @@ class ApiTradingAccountDTO {
 	private $tradingAccountType;
 
 	/**
-	 * Initalize the class attribute info.
-	 *  
 	 * @param integer $tradingAccountId
 	 * @param string $tradingAccountCode
 	 * @param string $tradingAccountStatus
@@ -46,7 +44,7 @@ class ApiTradingAccountDTO {
 	}
 
 	/**
-	 * @return string
+	 * @return string tradingAccountStatus
 	 */
 	public function getTradingAccountStatus() {
 		return $this->tradingAccountStatus;

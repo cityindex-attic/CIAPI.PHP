@@ -9,18 +9,14 @@ class ApiLogOffResponseDTO {
 	private $loggedOut;
 
 	/**
-	 * Initalize the class attribute info.
-	 *  
-	 * @param bool $loggedOut
+	 * @param boolean $loggedOut
 	 */
 	public function __construct($loggedOut) {
 		$this->loggedOut = $loggedOut;
 	}
 
 	/**
-	 * Getter for loggedOut attribute
-	 *
-	 * @return bool $loggedOut
+	 * @return boolean
 	 */
 	public function getLoggedOut() {
 		return $this->loggedOut;

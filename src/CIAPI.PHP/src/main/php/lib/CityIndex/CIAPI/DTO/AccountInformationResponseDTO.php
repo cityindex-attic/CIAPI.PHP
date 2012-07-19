@@ -15,8 +15,6 @@ class AccountInformationResponseDTO {
 	private $hasMultipleEmailAddresses;
 	
 	/**
-	 * Initalize the class attribute info.
-	 *  
 	 * @param string $logonUserName
 	 * @param integer $clientAccountId
 	 * @param string $clientAccountCurrency
@@ -65,8 +63,6 @@ class AccountInformationResponseDTO {
 	}
 
 	/**
-	 * A list of trading accounts.
-	 *
 	 * @return null|array
 	 */
  	public function getTradingAccounts() {

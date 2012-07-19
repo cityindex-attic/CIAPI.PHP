@@ -18,8 +18,6 @@ class ApiLogOnRequestDTO {
 	private $appComments;
 
 	/**
-	 * Initalize the class attribute info.
-	 *  
 	 * @param string $userName
 	 * @param string $password
 	 * @param string $appKey
@@ -35,22 +33,37 @@ class ApiLogOnRequestDTO {
 		$this->appComments = $appComments;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getUserName() {
 		return $this->userName;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getPassword() {
 		return $this->password;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getAppKey() {
 		return $this->appKey;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getAppVersion() {
 		return $this->appVersion;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getAppComments() {
 		return $this->appComments;
 	}

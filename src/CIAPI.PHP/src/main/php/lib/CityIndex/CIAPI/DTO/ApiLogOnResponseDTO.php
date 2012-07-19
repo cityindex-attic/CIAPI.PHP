@@ -11,8 +11,6 @@ class ApiLogOnResponseDTO {
 	private $allowedAccountOperator;
 	
     /**
-     * Initalize the class attribute info.
-     *  
      * @param string $session
      * @param bool $passwordChangeRequired
      * @param bool $allowedAccountOperator
@@ -24,9 +22,7 @@ class ApiLogOnResponseDTO {
     }
 
 	/**
-	 * Getter for session attribute
-	 *
-	 * @return string $session
+	 * @return string
 	 */
     public function getSession()
 	{
@@ -34,9 +30,7 @@ class ApiLogOnResponseDTO {
 	}
 
 	/**
-	 * Getter for passwordChangeRequired attribute
-	 *
-	 * @return bool $passwordChangeRequired
+	 * @return boolean
 	 */
 	public function getPasswordChangeRequired()
 	{
@@ -44,9 +38,7 @@ class ApiLogOnResponseDTO {
 	}
 
 	/**
-	 * Getter for allowedAccountOperator attribute
-	 *
-	 * @return bool $allowedAccountOperator
+	 * @return boolean
 	 */
 	public function getAllowedAccountOperator()
 	{

@@ -10,8 +10,6 @@ class ApiChangePasswordRequestDTO {
 	private $password;
 
 	/**
-	 * Initalize the class attribute info.
-	 *  
 	 * @param string $userName
 	 * @param string $password
 	 */
@@ -20,10 +18,16 @@ class ApiChangePasswordRequestDTO {
 		$this->password = $password;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getUserName() {
 		return $this->userName;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getPassword() {
 		return $this->password;
 	}

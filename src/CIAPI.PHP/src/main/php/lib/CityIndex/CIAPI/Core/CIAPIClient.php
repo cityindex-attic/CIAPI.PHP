@@ -23,7 +23,9 @@ class CIAPIClient implements CIAPI {
 	private $appComments;
 
 	/**
-	 * Initalize the class attribute info.
+	 * @param string $appKey
+	 * @param string $appVersion
+	 * @param string $appComments
 	 */
 	public function __construct($appKey, $appVersion, $appComments = "") {
 		$this->appKey = $appKey;
@@ -80,8 +82,6 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * Get UserName
-	 *
 	 * @return string $userName
 	 */
 	public function getUserName() {
@@ -89,8 +89,6 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * Get Session
-	 *
 	 * @return string $session
 	 */
 	public function getSession() {
@@ -98,8 +96,6 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * Get App Key
-	 *
 	 * @return string $appKey
 	 */
 	public function getAppKey()
@@ -108,8 +104,6 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * Get App Version
-	 *
 	 * @return string $appVersion
 	 */
 	public function getAppVersion()
@@ -118,8 +112,6 @@ class CIAPIClient implements CIAPI {
 	}
 
 	/**
-	 * Get App Comments
-	 *
 	 * @return string $appComments
 	 */
 	public function getAppComments()

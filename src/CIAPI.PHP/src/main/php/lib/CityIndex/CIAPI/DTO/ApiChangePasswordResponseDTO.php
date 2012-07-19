@@ -9,8 +9,6 @@ class ApiChangePasswordResponseDTO {
 	private $isPasswordChanged;
 
 	/**
-	 * Initalize the class attribute info.
-	 *
 	 * @param bool $isPasswordChanged
 	 */
 	public function __construct($isPasswordChanged) {
@@ -18,9 +16,7 @@ class ApiChangePasswordResponseDTO {
 	}
 
 	/**
-	 * Getter for isPasswordChanged attribute
-	 *
-	 * @return bool $isPasswordChanged
+	 * @return bool
 	 */
 	public function getLoggedOut() {
 		return $this->isPasswordChanged;

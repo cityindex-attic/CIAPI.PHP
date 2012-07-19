@@ -33,16 +33,12 @@ interface CIAPI {
 	public function changePassword($userName, $password);
 
 	/**
-	 * Get UserName
-	 *
 	 * @return string $userName
 	 */
 	public function getUserName();
 	
 	
 	/**
-	 * Get Session
-	 *
 	 * @return string $session
 	 */
 	public function getSession();
