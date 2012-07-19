@@ -1,7 +1,7 @@
 <?php
 
 namespace CityIndex\CIAPI\Core;
-require_once 'lib/CityIndex/CIAPI/Core/CIAPI.php';
+require_once 'CIAPI.php';
 
 use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
 use CityIndex\CIAPI\DTO\ApiLogOnRequestDTO;
