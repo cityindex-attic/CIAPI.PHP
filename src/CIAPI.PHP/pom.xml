@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -7,7 +8,7 @@
     <artifactId>ciapi-php</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-    
+
   <groupId>com.cityindex.ciapi</groupId>
   <artifactId>CIAPI.PHP</artifactId>
   <version>1.0-SNAPSHOT</version>
@@ -37,44 +38,58 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>vendor</directory>
+              <includes>
+                <include>**</include>
+              </includes>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-plugin</artifactId>
         <version>${phpmaven.plugin.version}</version>
         <configuration>
         </configuration>
       </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.0</version>
-          <inherited>true</inherited>
-          <configuration>
-            <reportPlugins>
-              <plugin>
-                <groupId>org.phpmaven</groupId>
-                <artifactId>maven-php-plugin</artifactId>
-                <version>${phpmaven.plugin.version}</version>
-                <reportSets>
-                  <reportSet>
-                    <reports>
-                      <report>phpdocumentor</report>
-                    </reports>
-                  </reportSet>
-                </reportSets>
-              </plugin>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>2.10</version>
-                <reportSets>
-                  <reportSet>
-                    <reports>
-                      <report>report-only</report>
-                    </reports>
-                  </reportSet>
-                </reportSets>
-              </plugin>
-            </reportPlugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.0</version>
+        <inherited>true</inherited>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <groupId>org.phpmaven</groupId>
+              <artifactId>maven-php-plugin</artifactId>
+              <version>${phpmaven.plugin.version}</version>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>phpdocumentor</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-report-plugin</artifactId>
+              <version>2.10</version>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>report-only</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+            </plugin>
+          </reportPlugins>
         </configuration>
       </plugin>
     </plugins>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -27,45 +28,69 @@
   </properties>
 
   <repositories>
-		<repository>
-			<id>release-repo1.php-maven.org</id>
-			<name>PHP-Maven 2 Release Repository</name>
-			<url>http://repos.php-maven.org/releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-		<repository>
-			<id>snapshot-repo1.php-maven.org</id>
-			<name>PHP-Maven 2 Snapshot Repository</name>
-			<url>http://repos.php-maven.org/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>release-repo1.php-maven.org</id>
-			<name>PHP-Maven 2 Release Repository</name>
-			<url>http://repos.php-maven.org/releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</pluginRepository>
-		<pluginRepository>
-			<id>snapshot-repo1.php-maven.org</id>
-			<name>PHP-Maven 2 Snapshot Repository</name>
-			<url>http://repos.php-maven.org/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+    <repository>
+      <id>release-repo1.php-maven.org</id>
+      <name>PHP-Maven 2 Release Repository</name>
+      <url>http://repos.php-maven.org/releases</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>snapshot-repo1.php-maven.org</id>
+      <name>PHP-Maven 2 Snapshot Repository</name>
+      <url>http://repos.php-maven.org/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>release-repo1.php-maven.org</id>
+      <name>PHP-Maven 2 Release Repository</name>
+      <url>http://repos.php-maven.org/releases</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </pluginRepository>
+    <pluginRepository>
+      <id>snapshot-repo1.php-maven.org</id>
+      <name>PHP-Maven 2 Snapshot Repository</name>
+      <url>http://repos.php-maven.org/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <configuration>
+              <target>
+                <property name="src.dir" location="${project.build.directory}/../src"/>
+                <subant>
+                  <fileset dir="${src.dir}" includes="**/build.xml"/>
+                </subant>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
