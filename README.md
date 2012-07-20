@@ -16,7 +16,9 @@ $client = new CIAPIClient("https://{REST API ENDPOINT}/", '{APP_KEY}', '{APP_VER
 // Create a session
 $client->logIn("{username}", "{password}");
 // Retrieve some data
-$accountInformation = $client->getClientAndTradingAccount();
+$accountInformation = $client->getAccountInformation();
+// Delete the session
+$client->logOut();
 ```
 
 
