@@ -1,5 +1,5 @@
 {
-    "hash": "02c6f165636dbebaf5a3af149f72a60d",
+    "hash": "7e75c896bea77e3c9238c0d563636f6c",
     "packages": [
         {
             "package": "rmccue/requests",
@@ -13,7 +13,7 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ]
+    "stability-flags": {
+        "rmccue/requests": 20
+    }
 }
