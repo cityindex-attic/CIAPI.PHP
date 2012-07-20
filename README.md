@@ -17,7 +17,7 @@ $client = new CIAPIClient("https://{REST API ENDPOINT}/", '{APP_KEY}', '{APP_VER
 $client->logIn("{username}", "{password}");
 // Retrieve some data
 $accountInformation = $client->getClientAndTradingAccount();
-    ```
+```
 
 # License
  
