@@ -69,28 +69,4 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.7</version>
-        <executions>
-          <execution>
-            <phase>compile</phase>
-            <configuration>
-              <target>
-                <property name="src.dir" location="${project.build.directory}/../src"/>
-                <subant>
-                  <fileset dir="${src.dir}" includes="**/build.xml"/>
-                </subant>
-              </target>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 </project>

@@ -52,6 +52,26 @@
         </configuration>
       </plugin>
       <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <configuration>
+              <target>
+                <property name="src.dir" location="${project.build.directory}/../src"/>
+                <subant>
+                  <fileset dir="${src.dir}" includes="**/build.xml"/>
+                </subant>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-plugin</artifactId>
         <version>${phpmaven.plugin.version}</version>
