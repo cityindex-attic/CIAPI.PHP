@@ -40,16 +40,13 @@ class CIAPIClient implements CIAPI {
 	 * @param string $userName
 	 * @param string $password
 	 * @return ApiLogOnResponseDTO $response
+	 * @throws SessionException
 	 */
 	public function logIn($userName, $password) {
-		if (strlen($userName) < ApiLogOnRequestDTO::USER_NAME_MIN_LENGTH
-				|| strlen($userName) > ApiLogOnRequestDTO::USER_NAME_MAX_LENGTH) {
-			throw new SessionException(SessionException::USER_NAME_LENGTH_VIOLATION);
-		}
-		if (strlen($password) < ApiLogOnRequestDTO::PASSWORD_MIN_LENGTH
-				|| strlen($password) > ApiLogOnRequestDTO::PASSWORD_MAX_LENGTH) {
-			throw new SessionException(SessionException::PASSWORD_LENGTH_VIOLATION);
-		}
+		self::validateLength($userName, ApiLogOnRequestDTO::USER_NAME_MIN_LENGTH, ApiLogOnRequestDTO::USER_NAME_MAX_LENGTH,
+				SessionException::USER_NAME_LENGTH_VIOLATION);
+		self::validateLength($password, ApiLogOnRequestDTO::PASSWORD_MIN_LENGTH, ApiLogOnRequestDTO::PASSWORD_MAX_LENGTH,
+				SessionException::PASSWORD_LENGTH_VIOLATION);
 
 		$this->userName = $userName;
 		$request = new ApiLogOnRequestDTO($userName, $password, $this->appKey, $this->appVersion, $this->appComments);
@@ -134,5 +131,18 @@ class CIAPIClient implements CIAPI {
 	 */
 	public function getAppComments() {
 		return $this->appComments;
+	}
+
+	/**
+	 * @param string $userName
+	 * @param integer $minLength
+	 * @param integer $maxLength
+	 * @param string $errorMessage
+	 * @throws SessionException
+	 */
+	protected static function validateLength($parameterValue, $minLength, $maxLength, $errorMessage) {
+		if (strlen($parameterValue) < $minLength || strlen($parameterValue) > $maxLength) {
+			throw new SessionException($errorMessage);
+		}
 	}
 }
