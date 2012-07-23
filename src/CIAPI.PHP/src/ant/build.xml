@@ -5,9 +5,9 @@
   <!-- set global properties for this build -->
   <!-- TODO: inherit properties from Maven (should be available, just hasn't worked as is) -->
   <property name="src" location=".." />
-    <property name="build" location="${src}/../target/composer" />
+  <property name="build" location="${src}/../target/composer" />
   <property name="dist" location="${build}" />
-  <property name="installerSrc" value ="http://getcomposer.org/installer" />
+  <property name="installerSrc" value="http://getcomposer.org/installer" />
   <property name="installerDest" location="${build}/installer" />
   <property name="composerSrc" location="${src}/.." />
   <property name="composerDest" location="${build}/composer.phar" />
@@ -17,13 +17,11 @@
     <tstamp />
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}" />
+    <available file="${composerDest}" type="file" property="composer.dest.available" />
   </target>
 
-  <target name="compile" depends="init" description="compile the source ">
-    <get src="${installerSrc}" 
-        dest="${installerDest}" 
-        verbose="true"
-        usetimestamp="true"/>
+  <target name="compile" depends="init" description="get composer and update definition" unless="${composer.dest.available}">
+    <get src="${installerSrc}" dest="${installerDest}" verbose="true" usetimestamp="true" />
     <exec executable="php" dir="${build}">
       <arg value="${installerDest}" />
     </exec>
