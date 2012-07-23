@@ -11,59 +11,28 @@ class ApiLogOnRequestDTO {
 	const PASSWORD_MIN_LENGTH = 6;
 	const PASSWORD_MAX_LENGTH = 20;
 
-	private $userName;
-	private $password;
-	private $appKey;
-	private $appVersion;
-	private $appComments;
+	/**
+	 * @var string $userName
+	 */
+	public $userName;
 
 	/**
-	 * @param string $userName
-	 * @param string $password
-	 * @param string $appKey
-	 * @param string $appVersion
-	 * @param string $appComments (optional)
+	 * @var string $password
 	 */
-	public function __construct($userName, $password, $appKey, $appVersion, $appComments = "") {
-		$this->userName = $userName;
-		$this->password = $password;
-		$this->appKey = $appKey;
-		$this->appVersion = $appVersion;
-		$this->appComments = $appComments;
-	}
+	public $password;
 
 	/**
-	 * @return string
+	 * @var string $appKey
 	 */
-	public function getUserName() {
-		return $this->userName;
-	}
+	public $appKey;
 
 	/**
-	 * @return string
+	 * @var string $appVersion
 	 */
-	public function getPassword() {
-		return $this->password;
-	}
+	public $appVersion;
 
 	/**
-	 * @return string
+	 * @var string $appComments (optional)
 	 */
-	public function getAppKey() {
-		return $this->appKey;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAppVersion() {
-		return $this->appVersion;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAppComments() {
-		return $this->appComments;
-	}
+	public $appComments;
 }

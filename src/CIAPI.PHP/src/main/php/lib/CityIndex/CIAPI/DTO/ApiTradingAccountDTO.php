@@ -11,49 +11,23 @@ class ApiTradingAccountDTO {
 	const TRADING_ACCOUNT_TYPE_SPREAD = 'Spread';
 	const TRADING_ACCOUNT_TYPE_CFD = 'CFD';
 
-	private $tradingAccountId;
-	private $tradingAccountCode;
-	private $tradingAccountStatus;
-	private $tradingAccountType;
+	/**
+	 * @var integer $tradingAccountId
+	 */
+	public $tradingAccountId;
 
 	/**
-	 * @param integer $tradingAccountId
-	 * @param string $tradingAccountCode
-	 * @param string $tradingAccountStatus
-	 * @param string $tradingAccountType
+	 * @var string $tradingAccountCode
 	 */
-	public function __construct($tradingAccountId, $tradingAccountCode, $tradingAccountStatus, $tradingAccountType) {
-		$this->tradingAccountId = $tradingAccountId;
-		$this->tradingAccountCode = $tradingAccountCode;
-		$this->tradingAccountStatus = $tradingAccountStatus;
-		$this->tradingAccountType = $tradingAccountType;
-	}
+	public $tradingAccountCode;
 
 	/**
-	 * @return integer
+	 * @var string $tradingAccountStatus
 	 */
-	public function getTradingAccountId() {
-		return $this->tradingAccountId;
-	}
+	public $tradingAccountStatus;
 
 	/**
-	 * @return string
+	 * @var string $tradingAccountType
 	 */
-	public function getTradingAccountCode() {
-		return $this->tradingAccountCode;
-	}
-
-	/**
-	 * @return string tradingAccountStatus
-	 */
-	public function getTradingAccountStatus() {
-		return $this->tradingAccountStatus;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getTradingAccountType() {
-		return $this->tradingAccountType;
-	}
+	public $tradingAccountType;
 }

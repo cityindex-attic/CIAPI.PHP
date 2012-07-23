@@ -6,80 +6,38 @@ namespace CityIndex\CIAPI\DTO;
  * Response from an account information query.
  */
 class AccountInformationResponseDTO {
-	private $logonUserName;
-	private $clientAccountId;
-	private $clientAccountCurrency;
-	private $accountOperatorId;
-	private $tradingAccounts = array();
-	private $personalEmailAddress;
-	private $hasMultipleEmailAddresses;
+	/**
+	 * @var string $logonUserName
+	 */
+	public $logonUserName;
 
 	/**
-	 * @param string $logonUserName
-	 * @param integer $clientAccountId
-	 * @param string $clientAccountCurrency
-	 * @param integer $accountOperatorId
-	 * @param array $tradingAccounts
-	 * @param string $personalEmailAddress
-	 * @param bool $personalEmailAddress
+	 * @var integer $clientAccountId
 	 */
-	public function __construct($logonUserName, $clientAccountId, $clientAccountCurrency, $accountOperatorId,
-			array $tradingAccounts, $personalEmailAddress, $hasMultipleEmailAddresses) {
-		$this->logonUserName = $logonUserName;
-		$this->clientAccountId = $clientAccountId;
-		$this->clientAccountCurrency = $clientAccountCurrency;
-		$this->accountOperatorId = $accountOperatorId;
-		$this->tradingAccounts = $tradingAccounts;
-		$this->personalEmailAddress = $personalEmailAddress;
-		$this->hasMultipleEmailAddresses = $hasMultipleEmailAddresses;
-	}
+	public $clientAccountId;
 
 	/**
-	 * @return string
+	 * @var string $clientAccountCurrency
 	 */
-	public function getLogonUserName() {
-		return $this->logonUserName;
-	}
+	public $clientAccountCurrency;
 
 	/**
-	 * @return integer
+	 * @var integer $accountOperatorId
 	 */
-	public function getClientAccountId() {
-		return $this->clientAccountId;
-	}
+	public $accountOperatorId;
 
 	/**
-	 * @return string
+	 * @var null|array $tradingAccounts
 	 */
-	public function getClientAccountCurrency() {
-		return $this->clientAccountCurrency;
-	}
+	public $tradingAccounts = array();
 
 	/**
-	 * @return integer
+	 * @var string $personalEmailAddress
 	 */
-	public function getAccountOperatorId() {
-		return $this->accountOperatorId;
-	}
+	public $personalEmailAddress;
 
 	/**
-	 * @return null|array
+	 * @var boolean $hasMultipleEmailAddresses
 	 */
-	public function getTradingAccounts() {
-		return $this->tradingAccounts;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPersonalEmailAddress() {
-		return $this->personalEmailAddress;
-	}
-
-	/**
-	 * @return boolean
-	 */
-	public function getHasMultipleEmailAddresses() {
-		return $this->hasMultipleEmailAddresses;
-	}
+	public $hasMultipleEmailAddresses;
 }

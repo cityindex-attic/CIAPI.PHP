@@ -10,14 +10,14 @@ interface CIAPI {
 	 *
 	 * @param string $userName
 	 * @param string $password
-	 * @return ApiLogOnResponseDTO $response
+	 * @return ApiLogOnResponseDTO
 	 */
 	public function logIn($userName, $password);
 
 	/**
 	 * Log Out
 	 *
-	 * @return boolean $result
+	 * @return boolean
 	 */
 	public function logOut();
 
@@ -26,7 +26,7 @@ interface CIAPI {
 	 *
 	 * @param string $userName
 	 * @param string $password
-	 * @return ApiLogOnResponseDTO $response
+	 * @return ApiLogOnResponseDTO
 	 */
 	public function changePassword($userName, $password);
 
