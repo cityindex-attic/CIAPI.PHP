@@ -31,7 +31,7 @@
     <repository>
       <id>release-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Release Repository</name>
-      <url>http://repos.php-maven.org/releases</url>
+      <url>http://nexus.php-maven.org/content/groups/release-repo1.php-maven.org/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -39,7 +39,7 @@
     <repository>
       <id>snapshot-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Snapshot Repository</name>
-      <url>http://repos.php-maven.org/snapshots</url>
+      <url>http://nexus.php-maven.org/content/groups/snapshot-repo1.php-maven.org/</url>
       <releases>
         <enabled>false</enabled>
       </releases>
@@ -52,7 +52,7 @@
     <pluginRepository>
       <id>release-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Release Repository</name>
-      <url>http://repos.php-maven.org/releases</url>
+      <url>http://nexus.php-maven.org/content/groups/release-repo1.php-maven.org/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -60,7 +60,7 @@
     <pluginRepository>
       <id>snapshot-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Snapshot Repository</name>
-      <url>http://repos.php-maven.org/snapshots</url>
+      <url>http://nexus.php-maven.org/content/groups/snapshot-repo1.php-maven.org/</url>
       <releases>
         <enabled>false</enabled>
       </releases>
