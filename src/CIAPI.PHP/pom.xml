@@ -21,6 +21,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <phpmaven.plugin.version>2.0-SNAPSHOT</phpmaven.plugin.version>
     <phpunit.version>3.6.10</phpunit.version>
   </properties>
 
@@ -73,6 +74,7 @@
       <plugin>
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-plugin</artifactId>
+        <version>${phpmaven.plugin.version}</version>
         <configuration>
         </configuration>
       </plugin>
@@ -86,6 +88,7 @@
             <plugin>
               <groupId>org.phpmaven</groupId>
               <artifactId>maven-php-plugin</artifactId>
+              <version>${phpmaven.plugin.version}</version>
               <reportSets>
                 <reportSet>
                   <reports>
