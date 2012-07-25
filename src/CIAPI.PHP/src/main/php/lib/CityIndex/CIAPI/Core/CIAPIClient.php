@@ -1,11 +1,15 @@
 <?php
 
 namespace CityIndex\CIAPI\Core;
+
 require_once 'CIAPI.php';
 
+use CityIndex\CIAPI\DTO\AbstractRequestDTO;
 use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
+use CityIndex\CIAPI\DTO\ApiLogOffResponseDTO;
 use CityIndex\CIAPI\DTO\ApiLogOnRequestDTO;
 use CityIndex\CIAPI\DTO\ApiLogOnResponseDTO;
+use CityIndex\CIAPI\DTO\ApiTradingAccountDTO;
 
 /**
  * City Index Trading API (CIAPI) client.
@@ -43,18 +47,25 @@ class CIAPIClient implements CIAPI {
 	 * @throws SessionException
 	 */
 	public function logIn($userName, $password) {
-		self::validateLength($userName, ApiLogOnRequestDTO::USER_NAME_MIN_LENGTH, ApiLogOnRequestDTO::USER_NAME_MAX_LENGTH,
-				SessionException::USER_NAME_LENGTH_VIOLATION);
-		self::validateLength($password, ApiLogOnRequestDTO::PASSWORD_MIN_LENGTH, ApiLogOnRequestDTO::PASSWORD_MAX_LENGTH,
-				SessionException::PASSWORD_LENGTH_VIOLATION);
+		self::validateLength($userName, ApiLogOnRequestDTO::USER_NAME_MIN_LENGTH,
+				ApiLogOnRequestDTO::USER_NAME_MAX_LENGTH, SessionException::USER_NAME_LENGTH_VIOLATION);
+		self::validateLength($password, ApiLogOnRequestDTO::PASSWORD_MIN_LENGTH,
+				ApiLogOnRequestDTO::PASSWORD_MAX_LENGTH, SessionException::PASSWORD_LENGTH_VIOLATION);
 
 		$this->userName = $userName;
-		$request = new ApiLogOnRequestDTO($userName, $password, $this->appKey, $this->appVersion, $this->appComments);
+		$requestDTO = new ApiLogOnRequestDTO();
+		$requestDTO->userName = $userName;
+		$requestDTO->password = $password;
+		$requestDTO->appKey = $this->appKey;
+		$requestDTO->appVersion = $this->appVersion;
+		$requestDTO->appComments = $this->appComments;
 
-		// @todo
-		$response = new ApiLogOnResponseDTO(null, false, false);
+		$response = $this->post($this->endpoint . '/session', $requestDTO);
+		$result = new ApiLogOnResponseDTO($response->body);
+		$this->session = $result->session;
 
-		return $response;
+		return $result;
+
 	}
 
 	/**
@@ -63,9 +74,13 @@ class CIAPIClient implements CIAPI {
 	 * @return boolean $result
 	 */
 	public function logOut() {
-		$this->session = null;
+		$response = $this->post($this->endpoint . '/session/deleteSession');
+		$result = new ApiLogOffResponseDTO($response->body);
+		if ($result->loggedOut) {
+			$this->session = null;
+		}
 
-		return true;
+		return $result->loggedOut;
 	}
 
 	/**
@@ -106,8 +121,8 @@ class CIAPIClient implements CIAPI {
 	 * @return AccountInformationResponseDTO
 	 */
 	public function getAccountInformation() {
-		// @todo
-		$result = new AccountInformationResponseDTO('', '', '', '', array(), '', '');
+		$response = $this->get($this->endpoint . '/UserAccount/ClientAndTradingAccount');
+		$result = new AccountInformationResponseDTO($response->body);
 
 		return $result;
 	}
@@ -131,6 +146,48 @@ class CIAPIClient implements CIAPI {
 	 */
 	public function getAppComments() {
 		return $this->appComments;
+	}
+
+	/**#@+
+	 * @param string $url
+	 * @param array $headers
+	 * @param array $options
+	 * @return \Requests_Response
+	 */
+	/**
+	 * Send a GET request
+	 */
+	public function get($url, $headers = array(), $options = array()) {
+		$defaultHeaders = array(
+			'Content-Type' => 'application/json', 'UserName' => $this->userName, 'Session' => $this->session,
+		);
+		$headers = array_merge($defaultHeaders, $headers);
+		$defaultOptions = array();
+		$options = array_merge($defaultOptions, $options);
+
+		return \Requests::get($url, $headers, $options);
+	}
+
+	/**#@+
+	 * @param string $url
+	 * @param AbstractRequestDTO $data
+	 * @param array $headers
+	 * @param array $options
+	 * @return \Requests_Response
+	 */
+	/**
+	 * Send a POST request
+	 */
+	public function post($url, AbstractRequestDTO $requestDTO = null, $headers = array(), $options = array()) {
+		$jsonRequestDTO = is_null($requestDTO) ? "{}" : json_encode(get_object_vars($requestDTO));
+		$defaultHeaders = array(
+			'Content-Type' => 'application/json', 'UserName' => $this->userName, 'Session' => $this->session,
+		);
+		$headers = array_merge($defaultHeaders, $headers);
+		$defaultOptions = array();
+		$options = array_merge($defaultOptions, $options);
+
+		return \Requests::post($url, $headers, $jsonRequestDTO, $options);
 	}
 
 	/**

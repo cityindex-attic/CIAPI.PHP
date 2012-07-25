@@ -5,7 +5,7 @@ namespace CityIndex\CIAPI\DTO;
 /**
  * Response from an account information query.
  */
-class AccountInformationResponseDTO {
+class AccountInformationResponseDTO extends AbstractResponseDTO {
 	/**
 	 * @var string $logonUserName
 	 */
@@ -40,4 +40,18 @@ class AccountInformationResponseDTO {
 	 * @var boolean $hasMultipleEmailAddresses
 	 */
 	public $hasMultipleEmailAddresses;
+
+	/**
+	 * @param string $propertyName
+	 * @throws LogicException
+	 */
+	protected static function mapPropertyNameToDTO($propertyName) {
+		switch ($propertyName) {
+		case 'tradingAccounts':
+			return 'CityIndex\CIAPI\DTO\ApiTradingAccountDTO';
+			break;
+		default:
+			throw new \InvalidArgumentException("Encountered unexpected property '" . $propertyName . "'");
+		}
+	}
 }

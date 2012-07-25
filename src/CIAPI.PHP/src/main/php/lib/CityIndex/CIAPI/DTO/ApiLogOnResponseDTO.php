@@ -5,7 +5,7 @@ namespace CityIndex\CIAPI\DTO;
 /**
  * Response to a session create (Log In) request.
  */
-class ApiLogOnResponseDTO {
+class ApiLogOnResponseDTO extends AbstractResponseDTO {
 	/**
 	 * @var string $session
 	 */

@@ -5,7 +5,7 @@ namespace CityIndex\CIAPI\DTO;
 /**
  * Request to create a session (log in).
  */
-class ApiLogOnRequestDTO {
+class ApiLogOnRequestDTO extends AbstractRequestDTO {
 	const USER_NAME_MIN_LENGTH = 6;
 	const USER_NAME_MAX_LENGTH = 20;
 	const PASSWORD_MIN_LENGTH = 6;

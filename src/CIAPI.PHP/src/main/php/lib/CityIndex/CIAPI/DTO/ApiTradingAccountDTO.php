@@ -5,7 +5,7 @@ namespace CityIndex\CIAPI\DTO;
 /**
  * Information about a Trading Account.
  */
-class ApiTradingAccountDTO {
+class ApiTradingAccountDTO extends AbstractResponseDTO  {
 	const TRADING_ACCOUNT_STATUS_OPEN = 'Open';
 	const TRADING_ACCOUNT_STATUS_CLOSED = 'Closed';
 	const TRADING_ACCOUNT_TYPE_SPREAD = 'Spread';
