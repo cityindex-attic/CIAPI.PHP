@@ -13,6 +13,7 @@ class AccountInformationTest extends CIAPITestCase {
 	static private $ctx;
 
 	public static function setUpBeforeClass() {
+		parent::initializeEnvironment();
 		self::$ctx = new CIAPIClient(self::$endpoint, self::$appKey, self::$appVersion);
 		self::$ctx->logIn(self::$userName, self::$password);
 	}
