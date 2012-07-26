@@ -59,7 +59,7 @@ dependencies, you will be able to add CIAPI.PHP with it as follows:
 
 ### Install via source from GitHub
 
-You can either clone the repository or dowload an archive:
+You can either clone the repository or download an archive:
 
 * Clone the source code via Git:
 ```sh
