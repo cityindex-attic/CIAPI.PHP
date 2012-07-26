@@ -17,6 +17,8 @@ $client = new CIAPIClient("https://{REST API ENDPOINT}/", '{APP_KEY}', '{APP_VER
 $client->logIn("{username}", "{password}");
 // Retrieve some data
 $accountInformation = $client->getAccountInformation();
+// Use the data
+echo $accountInformation->logonUserName ."\n";
 // Delete the session
 $client->logOut();
 ```
@@ -27,31 +29,46 @@ $client->logOut();
 
 ### Install via PHP Archive (phar)
 
+**NOTE**: CIAPI.PHP.phar is **currently dysfunctional**, so this doesn't work yet!
+
 You can include CIAPI.PHP via a single line as follows:
 
-	TODO [CIAPI.PHP-1.0-SNAPSHOT.phar is currently dysfunctional]
+```php
+<?php
+require_once 'CIAPI.PHP.phar';
+
+// ...
+```
 
 
 ### Install via Composer
 
+**NOTE**: CIAPI.PHP is **not yet published** via Composer, so this doesn't work yet!
+
 If you're using [Composer](https://github.com/composer/composer) to manage
 dependencies, you will be able to add CIAPI.PHP with it as follows:
 
-	TODO [CIAPI.PHP is not yet published via Composer]
-	
+```json
+{
+    "require": {
+        "cityindex/ciapi": ">=1.0"
+    }
+}
+```
 
-### Install via source from GitHub
 
-To install the source code:
+### Install via source from a GitHub repository
+
+Clone the source code via Git:
 
     $ git clone git://github.com/cityindex/CIAPI.PHP.git
 
-And include it in your scripts:
+Include it in your scripts via PHP autoloading:
 
     require_once '<PATH_TO CLONE>/vendor/autoload.php';
 
 
-### Install via source from tarball/zipball
+### Install via source from a GitHub tarball/zipball
 
 Alternatively, you can fetch a [tarball][] or [zipball][]:
 
