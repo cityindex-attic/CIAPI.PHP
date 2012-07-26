@@ -57,25 +57,31 @@ dependencies, you will be able to add CIAPI.PHP with it as follows:
 ```
 
 
-### Install via source from a GitHub repository
+### Install via source from GitHub
 
-Clone the source code via Git:
+You can either clone the repository or dowload an archive:
 
-    $ git clone git://github.com/cityindex/CIAPI.PHP.git
+* Clone the source code via Git:
+```sh
+$ git clone git://github.com/cityindex/CIAPI.PHP.git
+```    
+Include it in your scripts via PHP autoloading:    
+```php
+<?php
+require_once '<PATH TO CLONE>/vendor/autoload.php';
+```
 
-Include it in your scripts via PHP autoloading:
-
-    require_once '<PATH_TO CLONE>/vendor/autoload.php';
-
-
-### Install via source from a GitHub tarball/zipball
-
-Alternatively, you can fetch a [tarball][] or [zipball][]:
-
+* Alternatively, you can fetch a GitHub [tarball][] or [zipball][]:
+```sh
     $ curl https://github.com/cityindex/CIAPI.PHP/tarball/master | tar xzv
     (or)
     $ wget https://github.com/cityindex/CIAPI.PHP/tarball/master -O - | tar xzv
-
+```    
+Include it in your scripts via PHP autoloading:    
+```php
+<?php
+require_once '<PATH TO DOWNLOAD>/vendor/autoload.php';
+```
 [tarball]: https://github.com/cityindex/CIAPI.PHP/tarball/master
 [zipball]: https://github.com/cityindex/CIAPI.PHP/zipball/master
 
