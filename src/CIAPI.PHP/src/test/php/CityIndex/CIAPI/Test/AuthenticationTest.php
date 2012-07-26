@@ -10,6 +10,12 @@ use CityIndex\CIAPI\Core\SessionException;
 use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
 
 class AuthenticationTest extends CIAPITestCase {
+	static private $ctx;
+
+	public static function setUpBeforeClass() {
+		self::$ctx = new CIAPIClient(self::$endpoint, self::$appKey, self::$appVersion);
+	}
+
 	/**
 	 * @test
 	 * @expectedException CityIndex\CIAPI\Core\SessionException

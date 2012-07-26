@@ -15,6 +15,16 @@ use CityIndex\CIAPI\DTO\ApiTradingAccountDTO;
  * City Index Trading API (CIAPI) client.
  */
 class CIAPIClient implements CIAPI {
+	/**
+	 * @var string - The RPC endpoint for the City Index "Live" environment
+	 */
+	const ENDPOINT_RPC_LIVE = 'https://ciapi.cityindex.com/tradingapi/';
+
+	/**
+	 * @var string - The RPC endpoint for the City Index "Pre-Production" environment
+	 */
+	const ENDPOINT_RPC_PPE = 'https://ciapipreprod.cityindextest9.co.uk/TradingApi/';
+
 	const ID_MIN_VALUE = -2147483648;
 	const ID_MAX_VALUE = 2147483647;
 
