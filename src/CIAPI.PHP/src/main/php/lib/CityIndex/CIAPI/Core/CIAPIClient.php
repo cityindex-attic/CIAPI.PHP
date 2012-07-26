@@ -2,8 +2,6 @@
 
 namespace CityIndex\CIAPI\Core;
 
-require_once 'CIAPI.php';
-
 use CityIndex\CIAPI\DTO\AbstractRequestDTO;
 use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
 use CityIndex\CIAPI\DTO\ApiLogOffResponseDTO;
