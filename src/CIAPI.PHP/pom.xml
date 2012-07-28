@@ -4,17 +4,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.cityindex.ciapi</groupId>
-    <artifactId>ciapi-php</artifactId>
+    <groupId>com.cityindex.ciapi.ciapi-php</groupId>
+    <artifactId>ciapi-php-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.cityindex.ciapi</groupId>
-  <artifactId>CIAPI.PHP</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>ciapi-php</artifactId>
   <packaging>php</packaging>
 
-  <name>CIAPI.PHP library (module project)</name>
+  <name>CIAPI.PHP</name>
   <description>A basic/limited PHP client library for connecting to the CityIndex Trading API.</description>
   <url>https://github.com/cityindex/CIAPI.PHP</url>
   <inceptionYear>2012</inceptionYear>
@@ -49,7 +47,7 @@
             </goals>
             <configuration>
               <sources>
-                <source>${basedir}/vendor</source>
+                <source>${basedir}${file.separator}vendor</source>
               </sources>
             </configuration>
           </execution>
@@ -57,14 +55,10 @@
       </plugin>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>2.5</version>
         <configuration>
           <filesets>
             <fileset>
               <directory>vendor</directory>
-              <includes>
-                <include>**</include>
-              </includes>
             </fileset>
           </filesets>
         </configuration>
@@ -77,7 +71,7 @@
             <phase>compile</phase>
             <configuration>
               <target>
-                <property name="src.dir" location="${basedir}/src"/>
+                <property name="src.dir" location="${basedir}${file.separator}src"/>
                 <subant>
                   <fileset dir="${src.dir}" includes="**/build.xml"/>
                 </subant>

@@ -9,12 +9,12 @@
     <version>2.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.cityindex.ciapi</groupId>
-  <artifactId>ciapi-php</artifactId>
+  <groupId>com.cityindex.ciapi.ciapi-php</groupId>
+  <artifactId>ciapi-php-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>CIAPI.PHP library (parent project)</name>
+  <name>CIAPI.PHP (parent project)</name>
   <description>A basic/limited PHP client library for connecting to the CityIndex Trading API.</description>
   <url>https://github.com/cityindex/CIAPI.PHP</url>
   <inceptionYear>2012</inceptionYear>
