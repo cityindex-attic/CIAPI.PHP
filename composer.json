@@ -1,5 +1,5 @@
 {
-    "name": "cityindex/ciapi",
+    "name": "cityindex/ciapi-php",
     "type": "library",
     "description": "City Index Trading API (CIAPI) client",
     "homepage": "https://github.com/cityindex/CIAPI.PHP",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-0": {
-            "CityIndex": "src/main/php/",
+            "CityIndex": "ciapi-php/src/main/php/",
             "Requests": "vendor/rmccue/requests/library/"
         }
     }

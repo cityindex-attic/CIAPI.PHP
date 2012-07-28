@@ -4,12 +4,12 @@
     </description>
   <!-- set global properties for this build -->
   <!-- TODO: inherit properties from Maven (should be available, just hasn't worked as is) -->
-  <property name="src" location=".." />
-  <property name="build" location="${src}/../target/composer" />
+  <property name="src" location="ciapi-php" />
+  <property name="build" location="target/composer" />
   <property name="dist" location="${build}" />
   <property name="installerSrc" value="http://getcomposer.org/installer" />
   <property name="installerDest" location="${build}/installer" />
-  <property name="composerSrc" location="${src}/.." />
+  <property name="composerSrc" location="${base.dir}" />
   <property name="composerDest" location="${build}/composer.phar" />
 
   <target name="init">
