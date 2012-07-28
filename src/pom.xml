@@ -20,7 +20,7 @@
   <inceptionYear>2012</inceptionYear>
 
   <modules>
-    <module>CIAPI.PHP</module>
+    <module>ciapi-php</module>
   </modules>
 
   <properties>
