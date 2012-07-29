@@ -20,7 +20,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <phpunit.version>3.6.10</phpunit.version>
-  </properties>
+    <parent.dir>${project.basedir}${file.separator}..</parent.dir>
+    <vendor.dir>${parent.dir}${file.separator}vendor</vendor.dir>
+</properties>
 
   <dependencies>
     <dependency>
@@ -34,6 +36,25 @@
 
   <build>
     <plugins>
+     <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>add-vendor-sources</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${vendor.dir}</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-plugin</artifactId>
@@ -74,5 +95,15 @@
         </configuration>
       </plugin>
     </plugins>
+    <resources>
+      <resource>
+        <directory>${vendor.dir}</directory>
+        <includes>
+          <include>composer/*</include>
+          <include>autoload.php</include>
+          <include>rmccue${file.separator}requests${file.separator}library/**/*</include>
+        </includes>
+      </resource>
+    </resources>
   </build>
 </project>
