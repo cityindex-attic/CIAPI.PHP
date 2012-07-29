@@ -25,6 +25,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <phpunit.version>3.6.10</phpunit.version>
   </properties>
 
   <repositories>
@@ -76,7 +77,17 @@
     </pluginRepository>
   </pluginRepositories>
 
- <build>
+  <dependencies>
+    <dependency>
+      <groupId>de.phpunit</groupId>
+      <artifactId>PHPUnit</artifactId>
+      <version>${phpunit.version}</version>
+      <scope>test</scope>
+      <type>phar</type>
+    </dependency>
+  </dependencies>
+
+  <build>
     <plugins>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
@@ -109,6 +120,57 @@
           </execution>
         </executions>
       </plugin>
-     </plugins>
+      <plugin>
+        <groupId>org.phpmaven</groupId>
+        <artifactId>maven-php-plugin</artifactId>
+        <version>${phpmaven.plugin.version}</version>
+        <configuration>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.phpmaven</groupId>
+        <artifactId>maven-php-phpunit</artifactId>
+        <version>${phpmaven.plugin.version}</version>
+        <configuration>
+          <arguments>
+            --configuration ${parent.dir}${file.separator}phpunit.xml
+          </arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.0</version>
+        <inherited>true</inherited>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <groupId>org.phpmaven</groupId>
+              <artifactId>maven-php-plugin</artifactId>
+              <version>${phpmaven.plugin.version}</version>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>phpdocumentor</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-report-plugin</artifactId>
+              <version>2.10</version>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>report-only</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+            </plugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
