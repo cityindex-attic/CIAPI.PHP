@@ -58,12 +58,14 @@
       <plugin>
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-plugin</artifactId>
+        <version>${phpmaven.plugin.version}</version>
         <configuration>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-phpunit</artifactId>
+        <version>${phpmaven.plugin.version}</version>
         <configuration>
           <arguments>
             --configuration ${parent.dir}${file.separator}phpunit.xml
@@ -80,6 +82,7 @@
             <plugin>
               <groupId>org.phpmaven</groupId>
               <artifactId>maven-php-plugin</artifactId>
+              <version>${phpmaven.plugin.version}</version>
               <reportSets>
                 <reportSet>
                   <reports>
