@@ -1,4 +1,4 @@
-<project name="CIAPI.PHP (Ant support)" default="dist" basedir=".">
+<project name="CIAPI.PHP (Ant support)" default="install" basedir=".">
   <description>
         CIAPI.PHP Ant build support for specific tasks not readily/easily available in Maven itself.
     </description>
@@ -7,10 +7,12 @@
   <property name="src" location="ciapi-php" />
   <property name="build" location="target/composer" />
   <property name="dist" location="${build}" />
+  <property name="vendor" location="vendor" />
   <property name="installerSrc" value="http://getcomposer.org/installer" />
   <property name="installerDest" location="${build}/installer" />
   <property name="composerSrc" location="${base.dir}" />
   <property name="composerDest" location="${build}/composer.phar" />
+  <property name="phpTimezone" value="date.timezone=UTC" />
 
   <target name="init">
     <!-- Create the time stamp -->
@@ -18,26 +20,32 @@
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}" />
     <available file="${composerDest}" type="file" property="composer.dest.available" />
+    <available file="${vendor}" type="dir" property="vendor.available" />
   </target>
 
-  <target name="compile" depends="init" description="get composer and update definition" unless="${composer.dest.available}">
+  <target name="composer" depends="init" description="get composer" unless="${composer.dest.available}">
     <get src="${installerSrc}" dest="${installerDest}" verbose="true" usetimestamp="true" />
     <exec executable="php" dir="${build}">
       <arg value="${installerDest}" />
     </exec>
+  </target>
+
+<target name="install" depends="composer" description="parse composer.json and download dependencies" unless="${vendor.available}">
     <exec executable="php" dir="${composerSrc}">
-      <arg value="${composerDest}" />
-      <arg value="update" />
+      <arg line="-d ${phpTimezone} -f ${composerDest}" />
+      <arg value="install" />
     </exec>
   </target>
 
-  <target name="dist" depends="compile" description="generate the distribution">
-    <!-- Create the distribution directory -->
+<target name="update" depends="composer" description="update dependencies and composer.lock">
+    <exec executable="php" dir="${composerSrc}">
+      <arg line="-d ${phpTimezone} -f ${composerDest}" />
+      <arg value="update" />
+    </exec>
   </target>
 
   <target name="clean" description="clean up">
     <!-- Delete the ${build} and ${dist} directory trees -->
     <delete dir="${build}" />
-    <delete dir="${dist}" />
   </target>
 </project>
