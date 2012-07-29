@@ -1,13 +1,13 @@
 <?php
 
 namespace CityIndex\CIAPI\Test;
-require_once 'CIAPITestCase.php';
+require_once 'CIAPIIntegrationTestCase.php';
 
 use CityIndex\CIAPI\Core\CIAPIClient;
 use CityIndex\CIAPI\Core\SessionException;
 use CityIndex\CIAPI\DTO\AccountInformationResponseDTO;
 
-class AccountInformationTest extends CIAPITestCase {
+class AccountInformationTest extends CIAPIIntegrationTestCase {
 	static private $ctx;
 
 	public static function setUpBeforeClass() {
