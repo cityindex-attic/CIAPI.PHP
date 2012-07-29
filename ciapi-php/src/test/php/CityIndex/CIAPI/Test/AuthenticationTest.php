@@ -51,14 +51,14 @@ class AuthenticationTest extends CIAPITestCase {
 	 *
 	 * @test
 	 */
-// 	public function changePassword() {
-// 		$newPassphrase = 'This is the new passphrase!';
-// 		$userName = $this->ctx->getUserName();
+	public function changePassword() {
+		$newPassphrase = 'This is the new passphrase!';
+		$userName = self::$ctx->getUserName();
 
-// 		$response = $this->ctx->changePassword($userName, $newPassphrase);
-// 		$this->assertNull($response);
-// 		//		$this->assertEquals($newPassphrase, $this->ctx->getUserName(), 'New password doesn\'t match expectation!');
-// 	}
+		$this->markTestIncomplete('Method under test not yet implemented.');
+		$response = self::$ctx->changePassword($userName, $newPassphrase);
+		//		$this->assertEquals($newPassphrase, $this->ctx->getUserName(), 'New password doesn\'t match expectation!');
+	}
 
 	/**
 	 * Log Out

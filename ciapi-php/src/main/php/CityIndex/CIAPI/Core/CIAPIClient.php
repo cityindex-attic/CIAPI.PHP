@@ -99,8 +99,8 @@ class CIAPIClient implements CIAPI {
 	 * @return ApiLogOnResponseDTO
 	 */
 	public function changePassword($userName, $password) {
-		// @todo: strangely the following chokes with PHPUnit currently:
-		// throw new RuntimeException("Not implemented!");
+		throw new \LogicException("Method not yet implemented!");
+
 		return null;
 	}
 
