@@ -26,7 +26,7 @@
   <target name="composer" depends="init" description="get composer" unless="${composer.dest.available}">
     <get src="${installerSrc}" dest="${installerDest}" verbose="true" usetimestamp="true" />
     <exec executable="php" dir="${build}">
-      <arg value="${installerDest}" />
+      <arg line="-d ${phpTimezone} -f ${installerDest}" />
     </exec>
   </target>
 
