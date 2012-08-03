@@ -4,7 +4,7 @@
     </description>
   <!-- set global properties for this build -->
   <!-- TODO: inherit properties from Maven (should be available, just hasn't worked as is) -->
-  <property name="src" location="ciapi-php" />
+  <property name="src" location="src" />
   <property name="build" location="target/composer" />
   <property name="dist" location="${build}" />
   <property name="vendor" location="vendor" />

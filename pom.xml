@@ -1,38 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+  <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.phpmaven</groupId>
     <artifactId>php-parent-pom</artifactId>
     <version>2.0-SNAPSHOT</version>
   </parent>
-
-  <groupId>com.cityindex.ciapi.ciapi-php</groupId>
-  <artifactId>ciapi-php-parent</artifactId>
+  <artifactId>ciapi-php</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-
-  <name>CIAPI.PHP (parent project)</name>
+  <packaging>php</packaging>
+  <name>CIAPI.PHP</name>
   <description>A basic/limited PHP client library for connecting to the CityIndex Trading API.</description>
   <url>https://github.com/cityindex/CIAPI.PHP</url>
   <inceptionYear>2012</inceptionYear>
-
-  <modules>
-    <module>ciapi-php</module>
-  </modules>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <phpunit.version>3.6.10</phpunit.version>
+    <vendor.dir>${project.basedir}${file.separator}vendor</vendor.dir>
   </properties>
-
   <repositories>
     <repository>
       <id>release-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Release Repository</name>
-      <url>http://nexus.php-maven.org/content/groups/release-repo1.php-maven.org/</url>
+      <url>
+      http://nexus.php-maven.org/content/groups/release-repo1.php-maven.org/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -43,7 +37,8 @@
     <repository>
       <id>snapshot-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Snapshot Repository</name>
-      <url>http://nexus.php-maven.org/content/groups/snapshot-repo1.php-maven.org/</url>
+      <url>
+      http://nexus.php-maven.org/content/groups/snapshot-repo1.php-maven.org/</url>
       <releases>
         <enabled>false</enabled>
       </releases>
@@ -56,7 +51,8 @@
     <pluginRepository>
       <id>release-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Release Repository</name>
-      <url>http://nexus.php-maven.org/content/groups/release-repo1.php-maven.org/</url>
+      <url>
+      http://nexus.php-maven.org/content/groups/release-repo1.php-maven.org/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -67,7 +63,8 @@
     <pluginRepository>
       <id>snapshot-repo1.php-maven.org</id>
       <name>PHP-Maven 2 Snapshot Repository</name>
-      <url>http://nexus.php-maven.org/content/groups/snapshot-repo1.php-maven.org/</url>
+      <url>
+      http://nexus.php-maven.org/content/groups/snapshot-repo1.php-maven.org/</url>
       <releases>
         <enabled>false</enabled>
       </releases>
@@ -76,7 +73,6 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
   <dependencies>
     <dependency>
       <groupId>de.phpunit</groupId>
@@ -86,7 +82,6 @@
       <type>phar</type>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
@@ -101,6 +96,25 @@
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>add-vendor-sources</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${vendor.dir}</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.7</version>
         <executions>
@@ -109,8 +123,10 @@
             <configuration>
               <target>
                 <subant>
-                  <property name="base.dir" location="${basedir}"/>
-                  <fileset dir="${basedir}" includes="**/build.xml"/>
+                  <property name="base.dir"
+                            location="${basedir}" />
+                  <fileset dir="${basedir}"
+                           includes="**/build.xml" />
                 </subant>
               </target>
             </configuration>
@@ -124,17 +140,14 @@
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-plugin</artifactId>
         <version>${phpmaven.plugin.version}</version>
-        <configuration>
-        </configuration>
+        <configuration></configuration>
       </plugin>
       <plugin>
         <groupId>org.phpmaven</groupId>
         <artifactId>maven-php-phpunit</artifactId>
         <version>${phpmaven.plugin.version}</version>
         <configuration>
-          <arguments>
-            --configuration ${parent.dir}${file.separator}phpunit.xml
-          </arguments>
+          <arguments>--configuration ${project.basedir}${file.separator}phpunit.xml</arguments>
         </configuration>
       </plugin>
       <plugin>
@@ -172,5 +185,15 @@
         </configuration>
       </plugin>
     </plugins>
+    <resources>
+      <resource>
+        <directory>${vendor.dir}</directory>
+        <includes>
+          <include>composer/*</include>
+          <include>autoload.php</include>
+          <include>rmccue${file.separator}requests${file.separator}library/**/*</include>
+        </includes>
+      </resource>
+    </resources>
   </build>
 </project>

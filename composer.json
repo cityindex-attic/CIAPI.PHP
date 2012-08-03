@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-0": {
-            "CityIndex": "ciapi-php/src/main/php/",
+            "CityIndex": "src/main/php/",
             "Requests": "vendor/rmccue/requests/library/"
         }
     }
