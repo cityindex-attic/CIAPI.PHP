@@ -65,6 +65,10 @@ You can either clone the repository or download an archive:
 ```sh
 $ git clone git://github.com/cityindex/CIAPI.PHP.git
 ```    
+Run the Ant build to fetch dependencies via Composer:    
+```sh
+$ ant
+```    
 Include it in your scripts via PHP autoloading:    
 ```php
 <?php
@@ -76,6 +80,10 @@ require_once '<PATH TO CLONE>/vendor/autoload.php';
     $ curl https://github.com/cityindex/CIAPI.PHP/tarball/master | tar xzv
     (or)
     $ wget https://github.com/cityindex/CIAPI.PHP/tarball/master -O - | tar xzv
+```    
+Run the Ant build to fetch dependencies via Composer:    
+```sh
+$ ant
 ```    
 Include it in your scripts via PHP autoloading:    
 ```php
