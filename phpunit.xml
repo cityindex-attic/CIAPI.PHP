@@ -1,2 +1,5 @@
 <phpunit bootstrap="vendor/autoload.php" colors="true">
+  <logging>
+   <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="true"/>
+  </logging>
 </phpunit>

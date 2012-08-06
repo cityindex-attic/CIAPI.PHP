@@ -1,51 +1,76 @@
-<project name="CIAPI.PHP (Ant support)" default="install" basedir=".">
+<?xml version="1.0" encoding="utf-8"?>
+<project name="CIAPI.PHP" default="build" basedir=".">
   <description>
         CIAPI.PHP Ant build support for specific tasks not readily/easily available in Maven itself.
     </description>
   <!-- set global properties for this build -->
-  <!-- TODO: inherit properties from Maven (should be available, just hasn't worked as is) -->
+  <condition property="phpPearToolSuffix" value=".bat" else="">
+    <os family="windows" />
+  </condition>
   <property name="src" location="src" />
-  <property name="build" location="target/composer" />
-  <property name="dist" location="${build}" />
+  <property name="build" location="build" />
+  <property name="composer" location="${build}/composer" />
+  <property name="dist" location="${build}/dist" />
   <property name="vendor" location="vendor" />
   <property name="installerSrc" value="http://getcomposer.org/installer" />
-  <property name="installerDest" location="${build}/installer" />
-  <property name="composerSrc" location="${base.dir}" />
-  <property name="composerDest" location="${build}/composer.phar" />
+  <property name="installerDest" location="${composer}/installer" />
+  <property name="composerDest" location="${composer}/composer.phar" />
   <property name="phpTimezone" value="date.timezone=UTC" />
+  <property name="phpunit" value="phpunit${phpPearToolSuffix}" />
+
+  
+  <target name="build" depends="clean,install,phpunit">
+  </target>
+
+  <target name="dist" depends="dist-clean,install,phpunit">
+  </target>
 
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp />
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}" />
+    <mkdir dir="${build}/composer" />
     <available file="${composerDest}" type="file" property="composer.dest.available" />
     <available file="${vendor}" type="dir" property="vendor.available" />
   </target>
 
-  <target name="composer" depends="init" description="get composer" unless="${composer.dest.available}">
+  <target name="composer" depends="init" description="Get composer" unless="${composer.dest.available}">
     <get src="${installerSrc}" dest="${installerDest}" verbose="true" usetimestamp="true" />
-    <exec executable="php" dir="${build}">
+    <exec executable="php" dir="${composer}">
       <arg line="-d ${phpTimezone} -f ${installerDest}" />
     </exec>
   </target>
 
-<target name="install" depends="composer" description="parse composer.json and download dependencies" unless="${vendor.available}">
-    <exec executable="php" dir="${composerSrc}">
+<target name="install" depends="composer" description="Parse composer.json and download dependencies" unless="${vendor.available}">
+    <exec executable="php" dir="${basedir}">
       <arg line="-d ${phpTimezone} -f ${composerDest}" />
       <arg value="install" />
     </exec>
   </target>
 
-<target name="update" depends="composer" description="update dependencies and composer.lock">
-    <exec executable="php" dir="${composerSrc}">
+<target name="update" depends="composer" description="Update dependencies and composer.lock">
+    <exec executable="php" dir="${basedir}">
       <arg line="-d ${phpTimezone} -f ${composerDest}" />
       <arg value="update" />
     </exec>
   </target>
 
-  <target name="clean" description="clean up">
-    <!-- Delete the ${build} and ${dist} directory trees -->
+  <target name="phpunit" description="Run unit tests with PHPUnit">
+    <exec executable="${phpunit}" failonerror="true">
+      <arg value="--configuration" />
+      <arg value="${basedir}/phpunit.xml" />
+      <arg value="${basedir}/tests" />
+    </exec>
+  </target>
+
+<target name="clean" description="Clean up regular build artifacts (w/o vendor tree)">
+    <!-- Delete the ${build} directory tree -->
     <delete dir="${build}" />
+  </target>
+
+  <target name="dist-clean" depends="clean" description="Clean up all artifacts (w/ vendor tree)">
+    <!-- Delete the ${vendor} directory tree -->
+    <delete dir="${vendor}" />
   </target>
 </project>
