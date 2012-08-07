@@ -2,7 +2,7 @@
 A basic/limited PHP client library for connecting to the CityIndex Trading API.
 
 ## Status
-Actively developed (very early stages though, i.e. nothing to see yet) and currently unsupported.
+Actively developed (very early stages though) and currently unsupported.
 
 
 ## Usage Example
@@ -22,6 +22,14 @@ echo $accountInformation->logonUserName ."\n";
 // Delete the session
 $client->logOut();
 ```
+
+
+## Requirements
+
+CIAPI.PHP requires at least [PHP](http://php.net/) version 5.3.
+
+Furthermore it depends on [Requests for PHP](http://requests.ryanmccue.info/), but this dependency is usually handled automatically, 
+see section *Installation* for details.
 
 
 ## Installation
@@ -93,6 +101,33 @@ require_once '<PATH TO DOWNLOAD>/vendor/autoload.php';
 [tarball]: https://github.com/cityindex/CIAPI.PHP/tarball/master
 [zipball]: https://github.com/cityindex/CIAPI.PHP/zipball/master
 
+
+## Development
+
+A couple of preliminary notes on how to build/test the library:
+
+### Build
+
+The build is based on [Apache Ant](http://ant.apache.org/) and provides the usual targets clean/build/test/dist, e.g.
+```sh
+$ ant dist
+```
+
+Updating the Composer dependencies modifies the source code and ist handled by a dedicated target accordingly:    
+```sh
+$ ant update
+```
+
+### Test
+
+**NOTE**: Currently the builds are based on a fork, so beware.
+
+There are a few unit tests and some integration tests currently, with the latter requiring CIAPI credentials to be available as environment variables, e.g.
+(the integration tests are skipped if one or both of these are absent):    
+```sh
+$ export CIAPI_USERNAME='<username>'    
+$ export CIAPI_PASSWORD='<password>'
+```
 
 # License
  
