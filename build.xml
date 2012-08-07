@@ -15,14 +15,14 @@
   <property name="installerSrc" value="http://getcomposer.org/installer" />
   <property name="installerDest" location="${composer}/installer" />
   <property name="composerDest" location="${composer}/composer.phar" />
+  <property name="releaseName" value="CIAPI.PHP" />
   <property name="phpTimezone" value="date.timezone=UTC" />
   <property name="phpunit" value="phpunit${phpPearToolSuffix}" />
 
-  
-  <target name="build" depends="clean,install,phpunit">
+  <target name="build" depends="clean,install,test">
   </target>
 
-  <target name="dist" depends="dist-clean,install,phpunit">
+  <target name="dist" depends="dist-clean,install,package">
   </target>
 
   <target name="init">
@@ -42,14 +42,14 @@
     </exec>
   </target>
 
-<target name="install" depends="composer" description="Parse composer.json and download dependencies" unless="${vendor.available}">
+  <target name="install" depends="composer" description="Parse composer.json and download dependencies" unless="${vendor.available}">
     <exec executable="php" dir="${basedir}">
       <arg line="-d ${phpTimezone} -f ${composerDest}" />
       <arg value="install" />
     </exec>
   </target>
 
-<target name="update" depends="composer" description="Update dependencies and composer.lock">
+  <target name="update" depends="composer" description="Update dependencies and composer.lock">
     <exec executable="php" dir="${basedir}">
       <arg line="-d ${phpTimezone} -f ${composerDest}" />
       <arg value="update" />
@@ -64,7 +64,20 @@
     </exec>
   </target>
 
-<target name="clean" description="Clean up regular build artifacts (w/o vendor tree)">
+  <target name="test" depends="phpunit" description="Run tests">
+  </target>
+
+  <target name="package" depends="test" description="Create distribution pacakges">
+    <zip destfile="${dist}/${releaseName}.zip">
+      <zipfileset dir="${src}" prefix="CIAPI.PHP/src" />
+      <zipfileset dir="${vendor}" prefix="CIAPI.PHP/vendor" />
+    </zip>
+    <tar destfile="${dist}/${releaseName}.tar.gz" compression="gzip">
+      <zipfileset src="${dist}/${releaseName}.zip" />
+    </tar>
+  </target>
+
+  <target name="clean" description="Clean up regular build artifacts (w/o vendor tree)">
     <!-- Delete the ${build} directory tree -->
     <delete dir="${build}" />
   </target>
