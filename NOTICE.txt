@@ -1,0 +1,14 @@
+CIAPI.PHP
+Copyright 2012 CityIndex Ltd.
+
+
+This product includes software developed at
+	CityIndex Ltd. (http://www.cityindex.com)
+
+
+This software includes third party software subject to the following copyrights:
+- Requests - Copyright 2010-2012 Ryan McCue and contributors
+-- ComplexPie IRI Parser - Copyright 2007-2010, Geoffrey Sneddon and Steve Minutillo.
+
+The licenses for these (and other) third party components are packaged within their
+respective directories included with this distribution.
