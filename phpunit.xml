@@ -1,5 +1,8 @@
 <phpunit bootstrap="vendor/autoload.php" colors="true">
+  <testsuite name="All Tests">
+    <directory>tests</directory>
+  </testsuite>
   <logging>
-   <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+    <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
   </logging>
 </phpunit>

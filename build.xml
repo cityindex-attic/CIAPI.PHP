@@ -4,7 +4,7 @@
         CIAPI.PHP Ant build support for specific tasks not readily/easily available in Maven itself.
     </description>
   <!-- set global properties for this build -->
-  <condition property="phpPearToolSuffix" value=".bat" else="">
+  <condition property="windowsBatchToolSuffix" value=".bat" else="">
     <os family="windows" />
   </condition>
   <property name="src" location="src" />
@@ -17,7 +17,10 @@
   <property name="composerDest" location="${composer}/composer.phar" />
   <property name="releaseName" value="CIAPI.PHP" />
   <property name="phpTimezone" value="date.timezone=UTC" />
-  <property name="phpunit" value="phpunit${phpPearToolSuffix}" />
+  <property name="phpunit" value="phpunit${windowsBatchToolSuffix}" />
+  <property name="phpunitConf" location="phpunit.xml" />
+  <property name="travis-lint" value="travis-lint${windowsBatchToolSuffix}" />
+  <property name="travisConf" location=".travis.yml" />
 
   <target name="build" depends="clean,install,test">
   </target>
@@ -59,12 +62,17 @@
   <target name="phpunit" description="Run unit tests with PHPUnit">
     <exec executable="${phpunit}" failonerror="true">
       <arg value="--configuration" />
-      <arg value="${basedir}/phpunit.xml" />
-      <arg value="${basedir}/tests" />
+      <arg value="${phpunitConf}" />
     </exec>
   </target>
 
   <target name="test" depends="phpunit" description="Run tests">
+  </target>
+
+  <target name="travis" description="Validate Travis CI configuration">
+    <exec executable="${travis-lint}" failonerror="true">
+      <arg line="${travisConf}" />
+    </exec>
   </target>
 
   <target name="package" depends="test" description="Create distribution pacakges">
