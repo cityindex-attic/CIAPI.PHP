@@ -32,7 +32,7 @@ class PHPUnitClass implements PHPUnitInterface {
 	 * Initalize the class attribute info.
 	 */
 	private function __construct() {
-		$this->info = "Info set by class PHPUnitClass constructor.";
+		self::$info = "Info set by class PHPUnitClass constructor.";
 	}
 
 	/**
@@ -57,7 +57,7 @@ class PHPUnitClass implements PHPUnitInterface {
 	public function doSomething($returnClassInfo) {
 		$message = "";
 		if ($returnClassInfo == true) {
-			$message = $this->info;
+			$message = self::$info;
 		} else {
 			$message = "Method doSomething() called with argument 'false'!";
 		}
