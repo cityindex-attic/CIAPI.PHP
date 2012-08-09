@@ -3,7 +3,7 @@ A basic/limited PHP client library for connecting to the CityIndex Trading API.
 
 ## Status
 [![Build Status](https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/badge/icon)](https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/)
-[![Build Status](https://secure.travis-ci.org/composer/composer.png)](http://travis-ci.org/sopel/CIAPI.PHP)
+[![Build Status](https://secure.travis-ci.org/sopel/CIAPI.PHP.png?branch=master)](http://travis-ci.org/sopel/CIAPI.PHP)
 
 Actively developed (very early stages though) and currently unsupported.
 
