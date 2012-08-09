@@ -70,11 +70,26 @@ dependencies, you will be able to add CIAPI.PHP with it as follows:
 ```
 
 
+### Install via archives from BuildHive
+
+You can download a generated source archive:
+
+* Download the last successful source code artifacts from the [CIAPI.PHP BuildHive project][]:
+```sh
+$ curl -O https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/lastSuccessfulBuild/artifact/build/dist/CIAPI.PHP.tar.gz
+```    
+Include it in your scripts via PHP autoloading:    
+```php
+<?php
+require_once '<PATH TO DOWNLOAD>/vendor/autoload.php';
+```
+
+
 ### Install via source from GitHub
 
 You can either clone the repository or download an archive:
 
-* Clone the source code via Git:
+* Clone the source code from the [CIAPI.PHP Git repository][]:
 ```sh
 $ git clone git://github.com/cityindex/CIAPI.PHP.git
 ```    
@@ -88,7 +103,7 @@ Include it in your scripts via PHP autoloading:
 require_once '<PATH TO CLONE>/vendor/autoload.php';
 ```
 
-* Alternatively, you can fetch a GitHub [tarball][] or [zipball][]:
+* Alternatively, you can fetch a [tarball][] or [zipball][] from the [CIAPI.PHP Git repository][]:
 ```sh
     $ curl https://github.com/cityindex/CIAPI.PHP/tarball/master | tar xzv
     (or)
@@ -103,6 +118,8 @@ Include it in your scripts via PHP autoloading:
 <?php
 require_once '<PATH TO DOWNLOAD>/vendor/autoload.php';
 ```
+[CIAPI.PHP BuildHive project]: https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/
+[CIAPI.PHP Git repository]: https://github.com/cityindex/CIAPI.PHP
 [tarball]: https://github.com/cityindex/CIAPI.PHP/tarball/master
 [zipball]: https://github.com/cityindex/CIAPI.PHP/zipball/master
 
