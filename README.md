@@ -3,8 +3,11 @@ A basic/limited PHP client library for connecting to the CityIndex Trading API.
 
 ## Status
 [![Build Status](https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/badge/icon)](https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/)
+[![Build Status](https://secure.travis-ci.org/composer/composer.png)](http://travis-ci.org/sopel/CIAPI.PHP)
 
 Actively developed (very early stages though) and currently unsupported.
+
+**NOTE**: Currently the builds are based on a fork, so beware.
 
 
 ## Usage Example
@@ -121,8 +124,6 @@ $ ant update
 ```
 
 ### Test
-
-**NOTE**: Currently the builds are based on a fork, so beware.
 
 There are a few unit tests and some integration tests currently, with the latter requiring CIAPI credentials to be available as environment variables, e.g.
 (the integration tests are skipped if one or both of these are absent):    
