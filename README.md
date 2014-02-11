@@ -1,14 +1,14 @@
-# CIAPI.PHP ![Incomplete](http://labs.cityindex.com/wp-content/uploads/2012/01/lbl-incomplete.png)![Unsupported](http://labs.cityindex.com/wp-content/uploads/2012/01/lbl-unsupported.png)
+# CIAPI.PHP
+
 A basic/limited PHP client library for connecting to the CityIndex Trading API.
 
 ## Status
-[![Build Status](https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/badge/icon)](https://buildhive.cloudbees.com/job/sopel/job/CIAPI.PHP/)
-[![Build Status](https://secure.travis-ci.org/sopel/CIAPI.PHP.png?branch=master)](http://travis-ci.org/sopel/CIAPI.PHP)
 
-Actively developed (very early stages though) and currently unsupported.
+![Incomplete](http://labs.cityindex.com/wp-content/uploads/2012/01/lbl-incomplete.png)![Unsupported](http://labs.cityindex.com/wp-content/uploads/2012/01/lbl-unsupported.png)
 
-**NOTE**: Currently the builds are based on a fork, so beware.
+This project has been retired and is no longer being supported by City Index Ltd.
 
+* if you should choose to fork it outside of City Index, please let us know so we can link to your project
 
 ## Usage Example
 
@@ -28,7 +28,6 @@ echo $accountInformation->logonUserName ."\n";
 $client->logOut();
 ```
 
-
 ## Requirements
 
 CIAPI.PHP requires at least [PHP](http://php.net/) version 5.3.
@@ -36,9 +35,7 @@ CIAPI.PHP requires at least [PHP](http://php.net/) version 5.3.
 Furthermore it depends on [Requests for PHP](http://requests.ryanmccue.info/), but this dependency is usually handled automatically, 
 see section *Installation* for details.
 
-
 ## Installation
-
 
 ### Install via PHP Archive (phar)
 
@@ -52,7 +49,6 @@ require_once 'CIAPI.PHP.phar';
 
 // ...
 ```
-
 
 ### Install via Composer
 
@@ -69,7 +65,6 @@ dependencies, you will be able to add CIAPI.PHP with it as follows:
 }
 ```
 
-
 ### Install via archives from BuildHive
 
 You can download a generated source archive:
@@ -83,7 +78,6 @@ Include it in your scripts via PHP autoloading:
 <?php
 require_once '<PATH TO DOWNLOAD>/vendor/autoload.php';
 ```
-
 
 ### Install via source from GitHub
 
@@ -123,7 +117,6 @@ require_once '<PATH TO DOWNLOAD>/vendor/autoload.php';
 [tarball]: https://github.com/cityindex/CIAPI.PHP/tarball/master
 [zipball]: https://github.com/cityindex/CIAPI.PHP/zipball/master
 
-
 ## Development
 
 A couple of preliminary notes on how to build/test the library:
@@ -149,6 +142,18 @@ $ export CIAPI_USERNAME='<username>'
 $ export CIAPI_PASSWORD='<password>'
 ```
 
-# License
- 
-Licensed under the Apache License, Version 2.0, see LICENSE.TXT for details.
+## License
+
+Copyright 2012 City Index Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
